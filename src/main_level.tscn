@@ -30,3 +30,5 @@ script = ExtResource("3_5i0oo")
 [node name="Fish" parent="." instance=ExtResource("4_7j1v3")]
 position = Vector2(587, 412)
 script = ExtResource("5_yc7nh")
+
+[connection signal="body_entered" from="Fish" to="Fish" method="_on_body_entered"]
