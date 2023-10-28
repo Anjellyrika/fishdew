@@ -12,4 +12,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("up"):
 		velocity.y += VELOCITY
 
-	move_and_slide()
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		velocity = velocity.bounce(collision.get_normal()) * 0.25
