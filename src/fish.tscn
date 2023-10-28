@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://sywnhmj87o7k"]
 
-[ext_resource type="Texture2D" uid="uid://dvfwqq8liw4b" path="res://icon.svg" id="1_evvim"]
+[ext_resource type="Texture2D" uid="uid://dvfwqq8liw4b" path="res://assets/icon.svg" id="1_jkrhk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt8mh"]
 radius = 13.0
@@ -11,7 +11,7 @@ height = 36.0
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0.125, -3.57628e-07)
 scale = Vector2(0.216797, 0.203125)
-texture = ExtResource("1_evvim")
+texture = ExtResource("1_jkrhk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
