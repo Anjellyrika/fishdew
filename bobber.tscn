@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://de6h5ffhco2kj"]
+
+[ext_resource type="Texture2D" uid="uid://cgy63s4oq2ctw" path="res://assets/bobber.png" id="1_42wna"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cludq"]
+size = Vector2(30, 76)
+
+[node name="Bobber" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cludq")
+
+[node name="Bobber" type="Sprite2D" parent="."]
+texture = ExtResource("1_42wna")
