@@ -19,3 +19,17 @@ texture = ExtResource("1_jkrhk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nt8mh")
+
+[node name="WaitControl" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="WaitControl"]
+process_callback = 0
+one_shot = true
+
+[node name="DEBUG Label" type="Label" parent="." node_paths=PackedStringArray("fish", "timer")]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_8ax2u")
+fish = NodePath("..")
+timer = NodePath("../WaitControl/Timer")
