@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ho8poh5181ml"]
+[gd_scene load_steps=7 format=3 uid="uid://ho8poh5181ml"]
 
 [ext_resource type="Texture2D" uid="uid://e6j3nuqccsvs" path="res://assets/background.png" id="1_2dg5d"]
 [ext_resource type="PackedScene" uid="uid://de6h5ffhco2kj" path="res://src/bobber.tscn" id="2_5ivr6"]
 [ext_resource type="PackedScene" uid="uid://sywnhmj87o7k" path="res://src/fish.tscn" id="4_7j1v3"]
+[ext_resource type="Script" path="res://src/Score.gd" id="4_diiqt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0vvb"]
+bg_color = Color(0.423529, 0.227451, 0.117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufmk4"]
+bg_color = Color(0.4, 0.843137, 0.552941, 1)
 
 [node name="MainLevel" type="Node2D"]
 
@@ -28,4 +35,23 @@ position = Vector2(587, 418)
 position = Vector2(587, 412)
 speed_bounds = [8, 25]
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control" node_paths=PackedStringArray("fish", "bobber")]
+layout_mode = 0
+offset_left = 621.0
+offset_top = 68.0
+offset_right = 646.0
+offset_bottom = 563.0
+theme_override_styles/background = SubResource("StyleBoxFlat_b0vvb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ufmk4")
+fill_mode = 3
+show_percentage = false
+script = ExtResource("4_diiqt")
+fish = NodePath("../../Fish")
+bobber = NodePath("../../Bobber")
+
 [connection signal="body_entered" from="Fish" to="Fish" method="_on_body_entered"]
+[connection signal="body_exited" from="Fish" to="Bobber" method="_on_fish_body_exited"]

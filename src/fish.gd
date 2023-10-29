@@ -1,7 +1,10 @@
 extends Area2D
 
-@export var speed_bounds: Array
+class_name Fish
 
+signal scoreIncrease
+
+@export var speed_bounds: Array
 var start_position: Vector2
 var target_position: Vector2
 var target_vector: Vector2
@@ -39,9 +42,11 @@ func _process(delta):
 			wait()
 
 func _on_body_entered(body):
-	if body.get_name() != "Bobber":
+	if body.get_name() == "Bobber":
+		scoreIncrease.emit()
+	elif body.get_name() == "FishingRod":
 		edge_collision = true
-
+	
 func wait():
 	if waitTimer.time_left == 0:
 		waitTimer.start(1)
