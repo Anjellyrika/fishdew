@@ -26,5 +26,6 @@ position = Vector2(587, 418)
 
 [node name="Fish" parent="." instance=ExtResource("4_7j1v3")]
 position = Vector2(587, 412)
+speed_bounds = [8, 25]
 
 [connection signal="body_entered" from="Fish" to="Fish" method="_on_body_entered"]

@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var speed_bounds: Array
+
 var start_position: Vector2
 var target_position: Vector2
 var target_vector: Vector2
@@ -30,7 +32,7 @@ func _process(delta):
 	if not moving:
 		wait()
 	if moving:
-		global_position = global_position.move_toward(target_position, randf_range(50.0,100.0) * delta)
+		global_position = global_position.move_toward(target_position, (10*randi_range(speed_bounds[0],speed_bounds[1])) * delta)
 		if is_at_target_position() or edge_collision:
 			get_new_target(edge_collision)
 			edge_collision = false
