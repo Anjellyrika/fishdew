@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ho8poh5181ml"]
+[gd_scene load_steps=9 format=3 uid="uid://dtbn7i43ffud3"]
 
 [ext_resource type="Texture2D" uid="uid://e6j3nuqccsvs" path="res://assets/background.png" id="1_2dg5d"]
 [ext_resource type="PackedScene" uid="uid://de6h5ffhco2kj" path="res://src/bobber.tscn" id="2_5ivr6"]
 [ext_resource type="PackedScene" uid="uid://sywnhmj87o7k" path="res://src/fish.tscn" id="4_7j1v3"]
-[ext_resource type="Script" path="res://src/Score.gd" id="4_diiqt"]
 [ext_resource type="PackedScene" uid="uid://dgkyari10d2gs" path="res://src/chest_spawner.tscn" id="4_m0004"]
+[ext_resource type="Script" path="res://src/FishScore.gd" id="5_vnl4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi66l"]
 size = Vector2(63, 12)
@@ -46,7 +46,7 @@ layout_mode = 3
 anchors_preset = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="ProgressBar" type="ProgressBar" parent="Control" node_paths=PackedStringArray("fish", "bobber")]
+[node name="ProgressBar" type="ProgressBar" parent="Control" node_paths=PackedStringArray("fish")]
 layout_mode = 0
 offset_left = 620.0
 offset_top = 68.0
@@ -56,9 +56,8 @@ theme_override_styles/background = SubResource("StyleBoxFlat_b0vvb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ufmk4")
 fill_mode = 3
 show_percentage = false
-script = ExtResource("4_diiqt")
+script = ExtResource("5_vnl4l")
 fish = NodePath("../../Fish")
-bobber = NodePath("../../Bobber")
 
 [connection signal="body_entered" from="Fish" to="Fish" method="_on_body_entered"]
-[connection signal="body_exited" from="Fish" to="Bobber" method="_on_fish_body_exited"]
+[connection signal="body_exited" from="Fish" to="Fish" method="_on_body_exited"]
