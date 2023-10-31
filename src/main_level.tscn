@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ho8poh5181ml"]
+[gd_scene load_steps=9 format=3 uid="uid://ho8poh5181ml"]
 
 [ext_resource type="Texture2D" uid="uid://e6j3nuqccsvs" path="res://assets/background.png" id="1_2dg5d"]
 [ext_resource type="PackedScene" uid="uid://de6h5ffhco2kj" path="res://src/bobber.tscn" id="2_5ivr6"]
 [ext_resource type="PackedScene" uid="uid://sywnhmj87o7k" path="res://src/fish.tscn" id="4_7j1v3"]
 [ext_resource type="Script" path="res://src/Score.gd" id="4_diiqt"]
 [ext_resource type="PackedScene" uid="uid://dgkyari10d2gs" path="res://src/chest_spawner.tscn" id="4_m0004"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi66l"]
+size = Vector2(63, 12)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0vvb"]
 bg_color = Color(0.423529, 0.227451, 0.117647, 1)
@@ -17,17 +20,17 @@ bg_color = Color(0.4, 0.843137, 0.552941, 1)
 [node name="FishingRod" type="StaticBody2D" parent="."]
 
 [node name="background" type="Sprite2D" parent="FishingRod"]
-position = Vector2(587.5, 315.75)
-scale = Vector2(1.96875, 1.02807)
+position = Vector2(587, 315.5)
+scale = Vector2(1.96875, 0.97921)
 texture = ExtResource("1_2dg5d")
 
-[node name="bottom edge" type="CollisionPolygon2D" parent="FishingRod"]
-position = Vector2(595, 607)
-polygon = PackedVector2Array(-39, -55, -10.9322, -55, 24, -55, 24, -44, -39, -44)
+[node name="top edge" type="CollisionShape2D" parent="FishingRod"]
+position = Vector2(587, 74)
+shape = SubResource("RectangleShape2D_hi66l")
 
-[node name="top edge" type="CollisionPolygon2D" parent="FishingRod"]
-position = Vector2(595, 123)
-polygon = PackedVector2Array(-39, -55, 24, -55, 24, -44, -39, -44)
+[node name="bottom edge" type="CollisionShape2D" parent="FishingRod"]
+position = Vector2(587, 557)
+shape = SubResource("RectangleShape2D_hi66l")
 
 [node name="Bobber" parent="." instance=ExtResource("2_5ivr6")]
 position = Vector2(587, 418)
@@ -45,10 +48,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="ProgressBar" parent="Control" node_paths=PackedStringArray("fish", "bobber")]
 layout_mode = 0
-offset_left = 621.0
+offset_left = 620.0
 offset_top = 68.0
-offset_right = 646.0
-offset_bottom = 563.0
+offset_right = 645.0
+offset_bottom = 562.0
 theme_override_styles/background = SubResource("StyleBoxFlat_b0vvb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ufmk4")
 fill_mode = 3
