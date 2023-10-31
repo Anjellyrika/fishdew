@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgkyari10d2gs"]
+
+[ext_resource type="Script" path="res://src/chest_spawner.gd" id="1_ek2du"]
+[ext_resource type="PackedScene" uid="uid://cmjndycxmndy1" path="res://src/chest.tscn" id="2_m301v"]
+
+[node name="ChestSpawner" type="Node"]
+script = ExtResource("1_ek2du")
+
+[node name="Chest" parent="." instance=ExtResource("2_m301v")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

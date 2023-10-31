@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ho8poh5181ml"]
+[gd_scene load_steps=8 format=3 uid="uid://ho8poh5181ml"]
 
 [ext_resource type="Texture2D" uid="uid://e6j3nuqccsvs" path="res://assets/background.png" id="1_2dg5d"]
 [ext_resource type="PackedScene" uid="uid://de6h5ffhco2kj" path="res://src/bobber.tscn" id="2_5ivr6"]
 [ext_resource type="PackedScene" uid="uid://sywnhmj87o7k" path="res://src/fish.tscn" id="4_7j1v3"]
 [ext_resource type="Script" path="res://src/Score.gd" id="4_diiqt"]
+[ext_resource type="PackedScene" uid="uid://dgkyari10d2gs" path="res://src/chest_spawner.tscn" id="4_m0004"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0vvb"]
 bg_color = Color(0.423529, 0.227451, 0.117647, 1)
@@ -35,9 +36,12 @@ position = Vector2(587, 418)
 position = Vector2(587, 412)
 speed_bounds = [8, 25]
 
+[node name="ChestSpawner" parent="." instance=ExtResource("4_m0004")]
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="ProgressBar" parent="Control" node_paths=PackedStringArray("fish", "bobber")]
 layout_mode = 0

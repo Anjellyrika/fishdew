@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmjndycxmndy1"]
+
+[ext_resource type="Texture2D" uid="uid://dvfwqq8liw4b" path="res://assets/icon.svg" id="1_pkcrj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xq7m3"]
+size = Vector2(26, 26)
+
+[node name="Chest" type="Area2D"]
+position = Vector2(-17, 18)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 4.76837e-07)
+rotation = 3.14159
+scale = Vector2(0.20621, 0.20621)
+texture = ExtResource("1_pkcrj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xq7m3")
