@@ -11,7 +11,7 @@ size = Vector2(26, 26)
 bg_color = Color(0.423529, 0.227451, 0.117647, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6rnb"]
-bg_color = Color(0.4, 0.843137, 0.552941, 1)
+bg_color = Color(0.176471, 0.631373, 0.215686, 1)
 
 [node name="Chest" type="Area2D"]
 position = Vector2(-17, 18)

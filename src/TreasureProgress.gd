@@ -1,7 +1,7 @@
 extends ProgressBar
 
 @export var chest: Chest
-@export var progress_rate = -10
+@export var progress_rate = -50
 
 func _ready():
 	value = 0
