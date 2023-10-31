@@ -5,20 +5,43 @@ extends Node
 @onready var bottom_edge: Vector2 = fishingrod_node.get_child(2).get_position()
 @onready var edge_width = fishingrod_node.get_child(1).shape.size.y
 
-var chest_node = preload("res://src/chest.tscn")
-var isChestSpawned = false
+var chest = preload("res://src/chest.tscn").instantiate()
+enum {
+	NonExistent,
+	Spawning,
+	Spawned,
+	Collected
+}
+var state = NonExistent
 var rand_num: int
 
+func _ready():
+	chest.treasureProgressUp.connect(propagateScoreUp)
+	chest.treasureProgressDown.connect(propagateScoreDown)
+
 func _process(_delta):
-	if isChestSpawned:
-		pass
+#	print(state)
+	match state:
+		NonExistent:
+			pass
+		Spawning: # attempt to spawn a chest
+			rand_num = randi_range(1,8)
+			print("randnum: ", rand_num)
+			if rand_num == 1:
+				chest.position = Vector2(top_edge.x, randf_range(top_edge.y + edge_width, bottom_edge.y - edge_width))
+				add_child(chest)
+				state = Spawned
+		Spawned:
+			pass
+		Collected:
+			pass
 
 func _on_timer_timeout():
-	# attempt to spawn a chest
-	if not isChestSpawned:
-		rand_num = randi_range(1,4)
-		if rand_num == 1:
-			var chest = chest_node.instantiate()
-			chest.position = Vector2(top_edge.x, randf_range(top_edge.y + edge_width, bottom_edge.y - edge_width))
-			add_child(chest)
-			isChestSpawned = true
+	if state == NonExistent:
+		state = Spawning
+
+func propagateScoreUp():
+	print("treasure up")
+
+func propagateScoreDown():
+	print("treasure down")
