@@ -1,5 +1,8 @@
 extends ProgressBar
 
+signal Lose
+signal Win
+
 @export var fish: Fish
 @export var progress_rate = -10
 
@@ -18,3 +21,7 @@ func decrease_score():
 
 func _process(delta):
 	value += progress_rate * delta
+	if value == min_value:
+		Lose.emit()
+	elif value == max_value:
+		Win.emit()
