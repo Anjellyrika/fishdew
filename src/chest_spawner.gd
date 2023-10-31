@@ -16,17 +16,14 @@ var state = NonExistent
 var rand_num: int
 
 func _ready():
-	chest.treasureProgressUp.connect(propagateScoreUp)
-	chest.treasureProgressDown.connect(propagateScoreDown)
+	pass
 
 func _process(_delta):
-#	print(state)
 	match state:
 		NonExistent:
 			pass
 		Spawning: # attempt to spawn a chest
 			rand_num = randi_range(1,8)
-			print("randnum: ", rand_num)
 			if rand_num == 1:
 				chest.position = Vector2(top_edge.x, randf_range(top_edge.y + edge_width, bottom_edge.y - edge_width))
 				add_child(chest)
@@ -39,9 +36,3 @@ func _process(_delta):
 func _on_timer_timeout():
 	if state == NonExistent:
 		state = Spawning
-
-func propagateScoreUp():
-	print("treasure up")
-
-func propagateScoreDown():
-	print("treasure down")
