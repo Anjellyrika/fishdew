@@ -13,9 +13,10 @@ bg_color = Color(0.423529, 0.227451, 0.117647, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6rnb"]
 bg_color = Color(0.176471, 0.631373, 0.215686, 1)
 
-[node name="Chest" type="Area2D"]
+[node name="Chest" type="Area2D" node_paths=PackedStringArray("treasure")]
 position = Vector2(-17, 18)
 script = ExtResource("1_ih0yb")
+treasure = NodePath("TreasureProgress")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(-4.76837e-07, 4.76837e-07)

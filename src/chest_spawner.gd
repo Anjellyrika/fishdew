@@ -5,7 +5,6 @@ extends Node
 @onready var bottom_edge: Vector2 = fishingrod_node.get_child(2).get_position()
 @onready var edge_width = fishingrod_node.get_child(1).shape.size.y
 
-var chest = preload("res://src/chest.tscn").instantiate()
 enum {
 	NonExistent,
 	Spawning,
@@ -19,6 +18,7 @@ func _ready():
 	pass
 
 func _process(_delta):
+	var chest = preload("res://src/chest.tscn").instantiate()
 	match state:
 		NonExistent:
 			pass
@@ -29,9 +29,11 @@ func _process(_delta):
 				add_child(chest)
 				state = Spawned
 		Spawned:
-			pass
+			if get_child_count() == 2:
+				state = Collected
 		Collected:
-			pass
+			print("You got a treasure!")
+			state = NonExistent
 
 func _on_timer_timeout():
 	if state == NonExistent:

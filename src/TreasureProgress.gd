@@ -1,7 +1,11 @@
 extends ProgressBar
 
+class_name TreasureProgress
+
 @export var chest: Chest
 @export var progress_rate = -50
+
+signal treasureCollected
 
 func _ready():
 	value = 0
@@ -18,3 +22,5 @@ func decrease_score():
 
 func _process(delta):
 	value += progress_rate * delta
+	if value == max_value:
+		treasureCollected.emit()
