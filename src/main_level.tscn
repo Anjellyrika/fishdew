@@ -82,6 +82,10 @@ offset_right = 962.0
 offset_bottom = 108.0
 script = ExtResource("6_rcakc")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(587, 315)
+zoom = Vector2(1.2, 1.2)
+
 [connection signal="body_entered" from="Fish" to="Fish" method="_on_body_entered"]
 [connection signal="body_exited" from="Fish" to="Fish" method="_on_body_exited"]
 [connection signal="Lose" from="Control/ProgressBar" to="Control/Outcome" method="_on_progress_bar_lose"]
