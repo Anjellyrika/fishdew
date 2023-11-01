@@ -37,7 +37,7 @@ shape = SubResource("RectangleShape2D_hi66l")
 position = Vector2(587, 418)
 
 [node name="Fish" parent="." instance=ExtResource("4_7j1v3")]
-position = Vector2(587, 412)
+position = Vector2(586, 412)
 speed_bounds = [8, 25]
 
 [node name="ChestSpawner" parent="." instance=ExtResource("4_m0004")]
