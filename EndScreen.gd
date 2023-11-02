@@ -1,7 +1,7 @@
 extends Control
 
 func display_score(outcome, treasureScore):
-	$MarginContainer/VBoxContainer/Outcome.text = "You" + outcome + "the fish!"
+	$MarginContainer/VBoxContainer/Outcome.text = "You " + outcome + " the fish!"
 	$MarginContainer/VBoxContainer/TreasureCollected.text = "Treasure collected: " + str(treasureScore)
 
 func _on_play_again_pressed():
