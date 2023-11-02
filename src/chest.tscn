@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cmjndycxmndy1"]
 
 [ext_resource type="Script" path="res://src/chest.gd" id="1_ih0yb"]
-[ext_resource type="Texture2D" uid="uid://dvfwqq8liw4b" path="res://assets/icon.svg" id="1_pkcrj"]
 [ext_resource type="Script" path="res://src/TreasureProgress.gd" id="2_b1yqj"]
+[ext_resource type="Texture2D" uid="uid://bfqpgrqixy64o" path="res://assets/Treasure_Chest.png" id="2_uteaq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xq7m3"]
 size = Vector2(26, 26)
@@ -18,11 +18,11 @@ position = Vector2(-17, 18)
 script = ExtResource("1_ih0yb")
 treasure = NodePath("TreasureProgress")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-4.76837e-07, 4.76837e-07)
-rotation = 3.14159
-scale = Vector2(0.20621, 0.20621)
-texture = ExtResource("1_pkcrj")
+[node name="TreasureChest" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.25, 0.25)
+scale = Vector2(0.0637019, 0.0637019)
+texture = ExtResource("2_uteaq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xq7m3")
