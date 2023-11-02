@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtbn7i43ffud3"]
+[gd_scene load_steps=12 format=3 uid="uid://dtbn7i43ffud3"]
 
 [ext_resource type="Texture2D" uid="uid://e6j3nuqccsvs" path="res://assets/background.png" id="1_2dg5d"]
 [ext_resource type="PackedScene" uid="uid://de6h5ffhco2kj" path="res://src/bobber.tscn" id="2_5ivr6"]
+[ext_resource type="PackedScene" uid="uid://uuv6r24lldwk" path="res://src/end_screen.tscn" id="2_btlaw"]
 [ext_resource type="PackedScene" uid="uid://sywnhmj87o7k" path="res://src/fish.tscn" id="4_7j1v3"]
 [ext_resource type="PackedScene" uid="uid://dgkyari10d2gs" path="res://src/chest_spawner.tscn" id="4_m0004"]
 [ext_resource type="Script" path="res://src/FishScore.gd" id="5_vnl4l"]
+[ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="6_1ljxg"]
 [ext_resource type="Script" path="res://src/Outcome.gd" id="6_rcakc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi66l"]
@@ -17,6 +19,34 @@ bg_color = Color(0.423529, 0.227451, 0.117647, 1)
 bg_color = Color(0.4, 0.843137, 0.552941, 1)
 
 [node name="MainLevel" type="Node2D"]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Title" type="RichTextLabel" parent="UILayer"]
+offset_left = 258.0
+offset_top = 66.0
+offset_right = 513.0
+offset_bottom = 233.0
+theme_override_colors/default_color = Color(0.494118, 0.764706, 0.94902, 1)
+theme_override_fonts/normal_font = ExtResource("6_1ljxg")
+theme_override_font_sizes/normal_font_size = 28
+text = "FISHDEW
+by Jelly"
+
+[node name="Controls" type="RichTextLabel" parent="UILayer"]
+offset_left = 258.0
+offset_top = 178.0
+offset_right = 520.0
+offset_bottom = 345.0
+theme_override_fonts/normal_font = ExtResource("6_1ljxg")
+theme_override_font_sizes/normal_font_size = 10
+text = "Reel the green bobber in with
+- Left Mouse Button
+- Space
+- Enter"
+
+[node name="EndScreen" parent="UILayer" instance=ExtResource("2_btlaw")]
+visible = false
 
 [node name="FishingRod" type="StaticBody2D" parent="."]
 
@@ -60,20 +90,6 @@ show_percentage = false
 script = ExtResource("5_vnl4l")
 fish = NodePath("../../Fish")
 
-[node name="Controls" type="RichTextLabel" parent="Control"]
-layout_mode = 0
-offset_left = 261.0
-offset_top = 76.0
-offset_right = 445.0
-offset_bottom = 243.0
-text = "FISHDEW
-by Jelly :>
-
-Reel the bobber in with
-- Left Mouse Button
-- Space
-- Enter"
-
 [node name="Outcome" type="RichTextLabel" parent="Control"]
 layout_mode = 0
 offset_left = 727.0
@@ -88,5 +104,5 @@ zoom = Vector2(1.2, 1.2)
 
 [connection signal="body_entered" from="Fish" to="Fish" method="_on_body_entered"]
 [connection signal="body_exited" from="Fish" to="Fish" method="_on_body_exited"]
-[connection signal="Lose" from="Control/ProgressBar" to="Control/Outcome" method="_on_progress_bar_lose"]
-[connection signal="Win" from="Control/ProgressBar" to="Control/Outcome" method="_on_progress_bar_win"]
+[connection signal="Lose" from="Control/ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_lose"]
+[connection signal="Win" from="Control/ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_win"]
