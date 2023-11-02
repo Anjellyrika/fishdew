@@ -21,6 +21,7 @@ bg_color = Color(0.4, 0.843137, 0.552941, 1)
 [node name="MainLevel" type="Node2D"]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
+process_mode = 2
 
 [node name="Title" type="RichTextLabel" parent="UILayer"]
 offset_left = 258.0

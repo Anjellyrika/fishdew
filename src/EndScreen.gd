@@ -11,6 +11,7 @@ func display_score(outcome, treasureScore):
 		$MarginContainer/VBoxContainer/TreasureCollected.text = ""
 
 func _on_play_again_pressed():
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func _on_exit_pressed():
@@ -18,10 +19,12 @@ func _on_exit_pressed():
 	
 func _on_progress_bar_win():
 	self.visible = true
+	get_tree().paused = true
 	display_score("caught", 0)
 	
 func _on_progress_bar_lose():
 	self.visible = true
+	get_tree().paused = true
 	display_score("lost", 0)
 
 
