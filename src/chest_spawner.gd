@@ -19,7 +19,6 @@ var rand_num: int
 var treasureCollected = 0
 
 func _ready():
-#	pass
 	for child in fishingrod_node.get_children():
 		var child_name = child.get_name()
 		if child_name == "top edge":
