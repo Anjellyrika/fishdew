@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://uuv6r24lldwk"]
 
-[ext_resource type="Script" path="res://EndScreen.gd" id="1_fldyc"]
+[ext_resource type="Script" path="res://src/EndScreen.gd" id="1_yh6o0"]
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_rwnjd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1pnuh"]
@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fldyc")
+script = ExtResource("1_yh6o0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
