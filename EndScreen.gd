@@ -5,7 +5,10 @@ extends Control
 func display_score(outcome, treasureScore):
 	treasureScore = chest_control.treasureCollected
 	$MarginContainer/VBoxContainer/Outcome.text = "You " + outcome + " the fish!"
-	$MarginContainer/VBoxContainer/TreasureCollected.text = "Treasure collected: " + str(treasureScore)
+	if outcome == "caught":
+		$MarginContainer/VBoxContainer/TreasureCollected.text = "Treasure collected: " + str(treasureScore)
+	else:
+		$MarginContainer/VBoxContainer/TreasureCollected.text = ""
 
 func _on_play_again_pressed():
 	get_tree().reload_current_scene()
