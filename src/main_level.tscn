@@ -32,6 +32,7 @@ theme_override_fonts/normal_font = ExtResource("6_1ljxg")
 theme_override_font_sizes/normal_font_size = 28
 text = "FISHDEW
 by Jelly"
+metadata/_edit_use_anchors_ = true
 
 [node name="Controls" type="RichTextLabel" parent="UILayer"]
 offset_left = 258.0
@@ -44,6 +45,7 @@ text = "Reel the green bobber in with
 - Left Mouse Button
 - Space
 - Enter"
+metadata/_edit_use_anchors_ = true
 
 [node name="EndScreen" parent="UILayer" instance=ExtResource("2_btlaw")]
 visible = false
@@ -89,6 +91,7 @@ fill_mode = 3
 show_percentage = false
 script = ExtResource("5_vnl4l")
 fish = NodePath("../../Fish")
+metadata/_edit_use_anchors_ = true
 
 [node name="Outcome" type="RichTextLabel" parent="Control"]
 layout_mode = 0
@@ -97,6 +100,7 @@ offset_top = 68.0
 offset_right = 962.0
 offset_bottom = 108.0
 script = ExtResource("6_rcakc")
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(587, 315)

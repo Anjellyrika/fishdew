@@ -1,5 +1,7 @@
 extends Node
 
+class_name ChestSpawner
+
 @onready var fishingrod_node = get_parent().get_node("./FishingRod")
 @onready var top_edge: Vector2 = fishingrod_node.get_child(1).get_position()
 @onready var bottom_edge: Vector2 = fishingrod_node.get_child(2).get_position()
@@ -13,6 +15,8 @@ enum {
 }
 var state = NonExistent
 var rand_num: int
+
+var treasureCollected = 0
 
 func _ready():
 	pass
@@ -32,7 +36,7 @@ func _process(_delta):
 			if get_child_count() == 2:
 				state = Collected
 		Collected:
-			print("You got a treasure!")
+			treasureCollected += 1
 			state = NonExistent
 
 func _on_timer_timeout():

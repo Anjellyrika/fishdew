@@ -1,6 +1,9 @@
 extends Control
 
+@onready var chest_control: ChestSpawner = get_tree().current_scene.get_child(4)
+
 func display_score(outcome, treasureScore):
+	treasureScore = chest_control.treasureCollected
 	$MarginContainer/VBoxContainer/Outcome.text = "You " + outcome + " the fish!"
 	$MarginContainer/VBoxContainer/TreasureCollected.text = "Treasure collected: " + str(treasureScore)
 
