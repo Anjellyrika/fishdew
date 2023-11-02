@@ -52,9 +52,16 @@ visible = false
 
 [node name="FishingRod" type="StaticBody2D" parent="."]
 
-[node name="background" type="Sprite2D" parent="FishingRod"]
+[node name="rod" type="ColorRect" parent="FishingRod"]
+offset_left = 555.0
+offset_top = 68.0
+offset_right = 619.0
+offset_bottom = 564.0
+color = Color(1, 0.772549, 0.533333, 1)
+
+[node name="oceanbackground" type="Sprite2D" parent="FishingRod"]
 position = Vector2(587, 315.5)
-scale = Vector2(1.96875, 0.97921)
+scale = Vector2(1.0625, 0.97921)
 texture = ExtResource("1_2dg5d")
 
 [node name="top edge" type="CollisionShape2D" parent="FishingRod"]

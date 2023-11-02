@@ -3,9 +3,9 @@ extends Node
 class_name ChestSpawner
 
 @onready var fishingrod_node = get_parent().get_node("./FishingRod")
-@onready var top_edge: Vector2 = fishingrod_node.get_child(1).get_position()
-@onready var bottom_edge: Vector2 = fishingrod_node.get_child(2).get_position()
-@onready var edge_width = fishingrod_node.get_child(1).shape.size.y
+@onready var top_edge
+@onready var bottom_edge
+@onready var edge_width
 
 enum {
 	NonExistent,
@@ -19,7 +19,14 @@ var rand_num: int
 var treasureCollected = 0
 
 func _ready():
-	pass
+#	pass
+	for child in fishingrod_node.get_children():
+		var child_name = child.get_name()
+		if child_name == "top edge":
+			top_edge = child.get_position()
+			edge_width = child.shape.size.y
+		elif child_name == "bottom edge":
+			bottom_edge = child.get_position()
 
 func _process(_delta):
 	var chest = preload("res://src/chest.tscn").instantiate()
