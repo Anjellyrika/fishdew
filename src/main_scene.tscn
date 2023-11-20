@@ -13,9 +13,34 @@ grow_vertical = 2
 script = ExtResource("1_wij8a")
 
 [node name="HUD" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 457.0
+offset_top = 137.0
+offset_right = -454.0
+offset_bottom = -302.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.494118, 0.764706, 0.94902, 1)
+theme_override_fonts/normal_font = ExtResource("2_nq22c")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]
+FISHDEW
+by Jelly
+[/center]"
+fit_content = true
 
 [node name="Collection" type="VFlowContainer" parent="HUD"]
 layout_mode = 1
@@ -23,7 +48,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 40.0
 offset_top = 29.0
-offset_right = 406.0
+offset_right = 908.0
 offset_bottom = 22.0
 grow_vertical = 2
 
@@ -44,10 +69,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 476.0
-offset_top = 284.0
-offset_right = 636.0
-offset_bottom = 324.0
+offset_left = -80.0
+offset_top = -15.0
+offset_right = 80.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 
