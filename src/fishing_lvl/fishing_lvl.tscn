@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://dtbn7i43ffud3"]
 
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="1_uo0hm"]
-[ext_resource type="PackedScene" uid="uid://uuv6r24lldwk" path="res://src/end_screen.tscn" id="2_lw2gm"]
+[ext_resource type="PackedScene" uid="uid://uuv6r24lldwk" path="res://src/fishing_lvl/end_screen.tscn" id="2_lw2gm"]
 [ext_resource type="Texture2D" uid="uid://e6j3nuqccsvs" path="res://assets/background.png" id="3_s6jf6"]
-[ext_resource type="PackedScene" uid="uid://de6h5ffhco2kj" path="res://src/bobber.tscn" id="4_r0ydv"]
-[ext_resource type="PackedScene" uid="uid://sywnhmj87o7k" path="res://src/fish.tscn" id="5_u6fi8"]
-[ext_resource type="PackedScene" uid="uid://dgkyari10d2gs" path="res://src/chest_spawner.tscn" id="6_bmw5w"]
-[ext_resource type="Script" path="res://src/fishing_lvl_score.gd" id="7_jqe5k"]
-[ext_resource type="Script" path="res://src/fishing_lvl_outcome.gd" id="8_hhrda"]
+[ext_resource type="PackedScene" uid="uid://de6h5ffhco2kj" path="res://src/fishing_lvl/bobber.tscn" id="4_r0ydv"]
+[ext_resource type="PackedScene" uid="uid://sywnhmj87o7k" path="res://src/fishing_lvl/fish.tscn" id="5_u6fi8"]
+[ext_resource type="PackedScene" uid="uid://dgkyari10d2gs" path="res://src/fishing_lvl/chest_spawner.tscn" id="6_bmw5w"]
+[ext_resource type="Script" path="res://src/fishing_lvl/fishing_lvl_score.gd" id="7_jqe5k"]
+[ext_resource type="Script" path="res://src/fishing_lvl/fishing_lvl_outcome.gd" id="8_hhrda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi66l"]
 size = Vector2(63, 12)

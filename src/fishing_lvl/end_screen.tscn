@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://uuv6r24lldwk"]
 
-[ext_resource type="Script" path="res://src/end_screen.gd" id="1_yh6o0"]
+[ext_resource type="Script" path="res://src/fishing_lvl/end_screen.gd" id="1_yh6o0"]
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_rwnjd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1pnuh"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cmjndycxmndy1"]
 
-[ext_resource type="Script" path="res://src/chest.gd" id="1_ih0yb"]
-[ext_resource type="Script" path="res://src/chest_progress.gd" id="2_b1yqj"]
+[ext_resource type="Script" path="res://src/fishing_lvl/chest.gd" id="1_ih0yb"]
+[ext_resource type="Script" path="res://src/fishing_lvl/chest_progress.gd" id="2_b1yqj"]
 [ext_resource type="Texture2D" uid="uid://bfqpgrqixy64o" path="res://assets/Treasure_Chest.png" id="2_uteaq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xq7m3"]
