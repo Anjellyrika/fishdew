@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtbn7i43ffud3"]
+[gd_scene load_steps=11 format=3 uid="uid://dtbn7i43ffud3"]
 
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="1_uo0hm"]
 [ext_resource type="PackedScene" uid="uid://uuv6r24lldwk" path="res://src/fishing_lvl/end_screen.tscn" id="2_lw2gm"]
@@ -42,23 +42,23 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FishingRod" type="StaticBody2D" parent="."]
 
-[node name="rod" type="ColorRect" parent="FishingRod"]
+[node name="Rod" type="ColorRect" parent="FishingRod"]
 offset_left = 555.0
 offset_top = 68.0
 offset_right = 619.0
 offset_bottom = 564.0
 color = Color(1, 0.772549, 0.533333, 1)
 
-[node name="oceanbackground" type="Sprite2D" parent="FishingRod"]
+[node name="OceanBG" type="Sprite2D" parent="FishingRod"]
 position = Vector2(587, 315.5)
 scale = Vector2(1.0625, 0.97921)
 texture = ExtResource("3_s6jf6")
 
-[node name="top edge" type="CollisionShape2D" parent="FishingRod"]
+[node name="TopEdge" type="CollisionShape2D" parent="FishingRod"]
 position = Vector2(587, 74)
 shape = SubResource("RectangleShape2D_hi66l")
 
-[node name="bottom edge" type="CollisionShape2D" parent="FishingRod"]
+[node name="BottomEdge" type="CollisionShape2D" parent="FishingRod"]
 position = Vector2(587, 557)
 shape = SubResource("RectangleShape2D_hi66l")
 
