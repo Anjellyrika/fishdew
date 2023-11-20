@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://sywnhmj87o7k"]
 
 [ext_resource type="Script" path="res://src/fish.gd" id="1_5cr0a"]
-[ext_resource type="Script" path="res://src/FishStateLabel.gd" id="2_8ax2u"]
+[ext_resource type="Script" path="res://src/fish_state_label.gd" id="2_8ax2u"]
 [ext_resource type="Texture2D" uid="uid://bq8v13cudgyag" path="res://assets/Fish.png" id="2_pqlhc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt8mh"]

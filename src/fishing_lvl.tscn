@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://dtbn7i43ffud3"]
 
-[ext_resource type="Texture2D" uid="uid://e6j3nuqccsvs" path="res://assets/background.png" id="1_2dg5d"]
-[ext_resource type="PackedScene" uid="uid://de6h5ffhco2kj" path="res://src/bobber.tscn" id="2_5ivr6"]
-[ext_resource type="PackedScene" uid="uid://uuv6r24lldwk" path="res://src/end_screen.tscn" id="2_btlaw"]
-[ext_resource type="PackedScene" uid="uid://sywnhmj87o7k" path="res://src/fish.tscn" id="4_7j1v3"]
-[ext_resource type="PackedScene" uid="uid://dgkyari10d2gs" path="res://src/chest_spawner.tscn" id="4_m0004"]
-[ext_resource type="Script" path="res://src/FishScore.gd" id="5_vnl4l"]
-[ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="6_1ljxg"]
-[ext_resource type="Script" path="res://src/Outcome.gd" id="6_rcakc"]
+[ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="1_uo0hm"]
+[ext_resource type="PackedScene" uid="uid://uuv6r24lldwk" path="res://src/end_screen.tscn" id="2_lw2gm"]
+[ext_resource type="Texture2D" uid="uid://e6j3nuqccsvs" path="res://assets/background.png" id="3_s6jf6"]
+[ext_resource type="PackedScene" uid="uid://de6h5ffhco2kj" path="res://src/bobber.tscn" id="4_r0ydv"]
+[ext_resource type="PackedScene" uid="uid://sywnhmj87o7k" path="res://src/fish.tscn" id="5_u6fi8"]
+[ext_resource type="PackedScene" uid="uid://dgkyari10d2gs" path="res://src/chest_spawner.tscn" id="6_bmw5w"]
+[ext_resource type="Script" path="res://src/fishing_lvl_score.gd" id="7_jqe5k"]
+[ext_resource type="Script" path="res://src/fishing_lvl_outcome.gd" id="8_hhrda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi66l"]
 size = Vector2(63, 12)
@@ -18,7 +18,7 @@ bg_color = Color(0.423529, 0.227451, 0.117647, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufmk4"]
 bg_color = Color(0.4, 0.843137, 0.552941, 1)
 
-[node name="MainLevel" type="Node2D"]
+[node name="MainFishingLevel" type="Node2D"]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 process_mode = 2
@@ -29,7 +29,7 @@ offset_top = 66.0
 offset_right = 513.0
 offset_bottom = 233.0
 theme_override_colors/default_color = Color(0.494118, 0.764706, 0.94902, 1)
-theme_override_fonts/normal_font = ExtResource("6_1ljxg")
+theme_override_fonts/normal_font = ExtResource("1_uo0hm")
 theme_override_font_sizes/normal_font_size = 28
 text = "FISHDEW
 by Jelly"
@@ -40,7 +40,7 @@ offset_left = 258.0
 offset_top = 178.0
 offset_right = 520.0
 offset_bottom = 345.0
-theme_override_fonts/normal_font = ExtResource("6_1ljxg")
+theme_override_fonts/normal_font = ExtResource("1_uo0hm")
 theme_override_font_sizes/normal_font_size = 10
 text = "Reel the green bobber in with
 - Left Mouse Button
@@ -48,7 +48,7 @@ text = "Reel the green bobber in with
 - Enter"
 metadata/_edit_use_anchors_ = true
 
-[node name="EndScreen" parent="UILayer" instance=ExtResource("2_btlaw")]
+[node name="EndScreen" parent="UILayer" instance=ExtResource("2_lw2gm")]
 visible = false
 
 [node name="FishingRod" type="StaticBody2D" parent="."]
@@ -63,7 +63,7 @@ color = Color(1, 0.772549, 0.533333, 1)
 [node name="oceanbackground" type="Sprite2D" parent="FishingRod"]
 position = Vector2(587, 315.5)
 scale = Vector2(1.0625, 0.97921)
-texture = ExtResource("1_2dg5d")
+texture = ExtResource("3_s6jf6")
 
 [node name="top edge" type="CollisionShape2D" parent="FishingRod"]
 position = Vector2(587, 74)
@@ -73,14 +73,14 @@ shape = SubResource("RectangleShape2D_hi66l")
 position = Vector2(587, 557)
 shape = SubResource("RectangleShape2D_hi66l")
 
-[node name="Bobber" parent="." instance=ExtResource("2_5ivr6")]
+[node name="Bobber" parent="." instance=ExtResource("4_r0ydv")]
 position = Vector2(587, 418)
 
-[node name="Fish" parent="." instance=ExtResource("4_7j1v3")]
+[node name="Fish" parent="." instance=ExtResource("5_u6fi8")]
 position = Vector2(586, 412)
 speed_bounds = [8, 25]
 
-[node name="ChestSpawner" parent="." instance=ExtResource("4_m0004")]
+[node name="ChestSpawner" parent="." instance=ExtResource("6_bmw5w")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -97,7 +97,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_b0vvb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ufmk4")
 fill_mode = 3
 show_percentage = false
-script = ExtResource("5_vnl4l")
+script = ExtResource("7_jqe5k")
 fish = NodePath("../../Fish")
 metadata/_edit_use_anchors_ = true
 
@@ -107,12 +107,8 @@ offset_left = 727.0
 offset_top = 68.0
 offset_right = 962.0
 offset_bottom = 108.0
-script = ExtResource("6_rcakc")
+script = ExtResource("8_hhrda")
 metadata/_edit_use_anchors_ = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(587, 315)
-zoom = Vector2(1.2, 1.2)
 
 [connection signal="body_entered" from="Fish" to="Fish" method="_on_body_entered"]
 [connection signal="body_exited" from="Fish" to="Fish" method="_on_body_exited"]
