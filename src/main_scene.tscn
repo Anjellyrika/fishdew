@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbq64xvkkrvr3"]
+[gd_scene load_steps=3 format=3 uid="uid://bbq64xvkkrvr3"]
 
 [ext_resource type="Script" path="res://src/main_scene.gd" id="1_wij8a"]
+[ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_nq22c"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -10,3 +11,55 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wij8a")
+
+[node name="HUD" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Collection" type="VFlowContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 29.0
+offset_right = 406.0
+offset_bottom = 22.0
+grow_vertical = 2
+
+[node name="FishCount" type="Label" parent="HUD/Collection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nq22c")
+text = "Fish caught:"
+
+[node name="TreasureCount" type="Label" parent="HUD/Collection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nq22c")
+text = "Treasure:"
+
+[node name="MainBtns" type="VBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 476.0
+offset_top = 284.0
+offset_right = 636.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartBtn" type="Button" parent="HUD/MainBtns"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_nq22c")
+theme_override_font_sizes/font_size = 12
+text = "Start Fishing!"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[connection signal="pressed" from="HUD/MainBtns/StartBtn" to="." method="_on_start_btn_pressed"]
