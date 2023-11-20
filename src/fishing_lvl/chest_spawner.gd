@@ -28,7 +28,7 @@ func _ready():
 			bottom_edge = child.get_position()
 
 func _process(_delta):
-	var chest = preload("res://src/chest.tscn").instantiate()
+	var chest = preload("res://src/fishing_lvl/chest.tscn").instantiate()
 	match state:
 		NonExistent:
 			pass

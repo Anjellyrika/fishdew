@@ -2,13 +2,13 @@ extends Area2D
 
 class_name Chest
 
-@export var treasure: TreasureProgress
+@export var treasure_bar: TreasureProgress
 
 signal treasureProgressUp
 signal treasureProgressDown
 
 func _ready():
-	treasure.treasureCollected.connect(despawn)
+	treasure_bar.treasureCollected.connect(despawn)
 
 func _on_body_entered(body):
 	if body.get_name() == "Bobber":

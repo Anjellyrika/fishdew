@@ -13,12 +13,12 @@ bg_color = Color(0.423529, 0.227451, 0.117647, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6rnb"]
 bg_color = Color(0.176471, 0.631373, 0.215686, 1)
 
-[node name="Chest" type="Area2D" node_paths=PackedStringArray("treasure")]
+[node name="Chest" type="Area2D" node_paths=PackedStringArray("treasure_bar")]
 position = Vector2(-17, 18)
 script = ExtResource("1_ih0yb")
-treasure = NodePath("TreasureProgress")
+treasure_bar = NodePath("TreasureProgress")
 
-[node name="TreasureChest" type="Sprite2D" parent="."]
+[node name="TreasureChestSprite" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-0.25, 0.25)
 scale = Vector2(0.0637019, 0.0637019)
