@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://de6h5ffhco2kj" path="res://src/fishing_lvl/bobber.tscn" id="4_r0ydv"]
 [ext_resource type="PackedScene" uid="uid://sywnhmj87o7k" path="res://src/fishing_lvl/fish.tscn" id="5_u6fi8"]
 [ext_resource type="PackedScene" uid="uid://dgkyari10d2gs" path="res://src/fishing_lvl/chest_spawner.tscn" id="6_bmw5w"]
-[ext_resource type="Script" path="res://src/fishing_lvl/fishing_lvl_score.gd" id="7_jqe5k"]
+[ext_resource type="Script" path="res://src/fishing_lvl/fishing_lvl_progress.gd" id="7_4d5vr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi66l"]
 size = Vector2(63, 12)
@@ -74,7 +74,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_b0vvb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ufmk4")
 fill_mode = 3
 show_percentage = false
-script = ExtResource("7_jqe5k")
+script = ExtResource("7_4d5vr")
 fish = NodePath("../../Fish")
 metadata/_edit_use_anchors_ = true
 
@@ -96,5 +96,5 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Fish" to="Fish" method="_on_body_entered"]
 [connection signal="body_exited" from="Fish" to="Fish" method="_on_body_exited"]
-[connection signal="Lose" from="Control/ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_lose"]
-[connection signal="Win" from="Control/ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_win"]
+[connection signal="fish_caught" from="Control/ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_fish_caught"]
+[connection signal="fish_lost" from="Control/ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_fish_lost"]

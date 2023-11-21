@@ -5,12 +5,12 @@ class_name TreasureProgress
 @export var chest: Chest
 @export var progress_rate = -50
 
-signal treasureCollected
+signal treasure_collected
 
 func _ready():
 	value = 0
-	chest.treasureProgressUp.connect(increase_score)
-	chest.treasureProgressDown.connect(decrease_score)
+	chest.chest_progress_increased.connect(increase_score)
+	chest.chest_progress_decreased.connect(decrease_score)
 	increase_score()
 	decrease_score()
 
@@ -23,4 +23,4 @@ func decrease_score():
 func _process(delta):
 	value += progress_rate * delta
 	if value == max_value:
-		treasureCollected.emit()
+		treasure_collected.emit()

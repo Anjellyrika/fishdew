@@ -23,13 +23,13 @@ func _on_exit_pressed():
 	get_tree().quit()
 
 
-func _on_progress_bar_win():
+func _on_progress_bar_fish_caught():
 	self.visible = true
 	get_tree().paused = true
 	display_score("caught")
 
 
-func _on_progress_bar_lose():
+func _on_progress_bar_fish_lost():
 	self.visible = true
 	get_tree().paused = true
 	display_score("lost")

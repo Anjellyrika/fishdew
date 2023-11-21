@@ -1,15 +1,15 @@
 extends ProgressBar
 
-signal Lose
-signal Win
+signal fish_lost
+signal fish_caught
 
 @export var fish: Fish
 @export var progress_rate = -10
 
 func _ready():
 	value = max_value/2
-	fish.scoreIncrease.connect(increase_score)
-	fish.scoreDecrease.connect(decrease_score)
+	fish.fish_progress_increased.connect(increase_score)
+	fish.fish_progress_decreased.connect(decrease_score)
 	increase_score()
 	decrease_score()
 
@@ -22,6 +22,6 @@ func decrease_score():
 func _process(delta):
 	value += progress_rate * delta
 	if value == min_value:
-		Lose.emit()
+		fish_lost.emit()
 	elif value == max_value:
-		Win.emit()
+		fish_caught.emit()

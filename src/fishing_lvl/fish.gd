@@ -2,8 +2,8 @@ extends Area2D
 
 class_name Fish
 
-signal scoreIncrease
-signal scoreDecrease
+signal fish_progress_increased
+signal fish_progress_decreased
 
 @export var speed_bounds: Array
 var start_position: Vector2
@@ -49,10 +49,10 @@ func wait():
 
 func _on_body_entered(body):
 	if body.get_name() == "Bobber":
-		scoreIncrease.emit()
+		fish_progress_increased.emit()
 	elif body.get_name() == "FishingRod":
 		edge_collision = true	
 
 func _on_body_exited(body):
 	if body.get_name() == "Bobber":
-		scoreDecrease.emit()
+		fish_progress_decreased.emit()
