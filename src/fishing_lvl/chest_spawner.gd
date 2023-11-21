@@ -2,6 +2,8 @@ class_name ChestSpawner
 
 extends Node
 
+signal treasure_collected
+
 enum {
 	NonExistent,
 	Spawning,
@@ -46,7 +48,7 @@ func _process(_delta):
 			if get_child_count() == 2:
 				state = Collected
 		Collected:
-			treasureCollected += 1
+			treasure_collected.emit()
 			state = NonExistent
 
 func _on_timer_timeout():
