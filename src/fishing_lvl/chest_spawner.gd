@@ -1,11 +1,6 @@
-extends Node
-
 class_name ChestSpawner
 
-@onready var fishingrod_node = get_parent().get_node("./FishingRod")
-@onready var top_edge
-@onready var bottom_edge
-@onready var edge_width
+extends Node
 
 enum {
 	NonExistent,
@@ -13,19 +8,29 @@ enum {
 	Spawned,
 	Collected
 }
+
 var state = NonExistent
 var rand_num: int
-
 var treasureCollected = 0
 
+@onready var root = get_parent()
+@onready var top_bounds
+@onready var bot_bounds
+
 func _ready():
-	for child in fishingrod_node.get_children():
+	var edge_width
+	var top_edge
+	var bot_edge
+	for child in root.find_child("FishingRod").get_children():
 		var child_name = child.get_name()
-		if child_name == "top edge":
+		if child_name == "TopEdge":
 			top_edge = child.get_position()
 			edge_width = child.shape.size.y
-		elif child_name == "bottom edge":
-			bottom_edge = child.get_position()
+		elif child_name == "BottomEdge":
+			bot_edge = child.get_position()
+	
+	top_bounds = top_edge.y + edge_width
+	bot_bounds = bot_edge.y - edge_width
 
 func _process(_delta):
 	var chest = preload("res://src/fishing_lvl/chest.tscn").instantiate()
@@ -35,7 +40,7 @@ func _process(_delta):
 		Spawning: # attempt to spawn a chest
 			rand_num = randi_range(1,8)
 			if rand_num == 1:
-				chest.position = Vector2(top_edge.x, randf_range(top_edge.y + edge_width, bottom_edge.y - edge_width))
+				chest.position = Vector2(root.rod_x, randf_range(top_bounds, bot_bounds))
 				add_child(chest)
 				state = Spawned
 		Spawned:

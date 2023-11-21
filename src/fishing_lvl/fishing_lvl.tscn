@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtbn7i43ffud3"]
+[gd_scene load_steps=12 format=3 uid="uid://dtbn7i43ffud3"]
 
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="1_uo0hm"]
+[ext_resource type="Script" path="res://src/fishing_lvl/fishing_lvl.gd" id="1_ynd5m"]
 [ext_resource type="PackedScene" uid="uid://uuv6r24lldwk" path="res://src/fishing_lvl/end_screen.tscn" id="2_lw2gm"]
 [ext_resource type="Texture2D" uid="uid://e6j3nuqccsvs" path="res://assets/background.png" id="3_s6jf6"]
 [ext_resource type="PackedScene" uid="uid://de6h5ffhco2kj" path="res://src/fishing_lvl/bobber.tscn" id="4_r0ydv"]
@@ -18,6 +19,9 @@ bg_color = Color(0.423529, 0.227451, 0.117647, 1)
 bg_color = Color(0.4, 0.843137, 0.552941, 1)
 
 [node name="MainFishingLevel" type="Node2D"]
+script = ExtResource("1_ynd5m")
+
+[node name="ChestSpawner" parent="." instance=ExtResource("6_bmw5w")]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 process_mode = 2
@@ -68,8 +72,6 @@ position = Vector2(587, 418)
 [node name="Fish" parent="." instance=ExtResource("5_u6fi8")]
 position = Vector2(586, 412)
 speed_bounds = [8, 25]
-
-[node name="ChestSpawner" parent="." instance=ExtResource("6_bmw5w")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
