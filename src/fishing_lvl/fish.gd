@@ -1,17 +1,19 @@
-extends Area2D
-
 class_name Fish
+
+extends Area2D
 
 signal fish_progress_increased
 signal fish_progress_decreased
 
 @export var speed_bounds: Array
+
 var start_position: Vector2
 var target_position: Vector2
 var target_vector: Vector2
-
 var edge_collision: bool = false
 var moving: bool = true
+
+@onready var root = get_owner()
 @onready var waitTimer = $WaitControl/Timer
 
 func _ready():
