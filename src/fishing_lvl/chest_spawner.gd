@@ -2,22 +2,23 @@ class_name ChestSpawner
 
 extends Node
 
-signal treasure_collected
-
 enum {
 	NonExistent,
 	Spawning,
-	Spawned,
-	Collected
+	Spawned
 }
 
+signal chest_collected
+
 var state = NonExistent
+var offscreen_position: Vector2
 
 @onready var root = get_owner()
+@onready var chest = $Chest
 
 func _ready():
-	pass
-
+	offscreen_position = chest.position
+	chest.collected.connect(despawn)
 
 func _process(_delta):
 	match state:
@@ -25,18 +26,16 @@ func _process(_delta):
 			pass
 		Spawning: # attempt to spawn a chest
 			if randi_range(1,8) == 1:
-				var chest = preload("res://src/fishing_lvl/chest.tscn").instantiate()
 				chest.position = Vector2(root.rod_x, randf_range(root.top_bounds, root.bot_bounds))
-				add_child(chest)
 				state = Spawned
 		Spawned:
-			if get_child_count() == 2:
-				state = Collected
-		Collected:
-			treasure_collected.emit()
-			state = NonExistent
-
+			pass
 
 func _on_timer_timeout():
 	if state == NonExistent:
 		state = Spawning
+		
+func despawn():
+	chest.position = offscreen_position
+	chest_collected.emit()
+	state = NonExistent

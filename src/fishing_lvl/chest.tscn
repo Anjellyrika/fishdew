@@ -13,10 +13,10 @@ bg_color = Color(0.423529, 0.227451, 0.117647, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6rnb"]
 bg_color = Color(0.176471, 0.631373, 0.215686, 1)
 
-[node name="Chest" type="Area2D" node_paths=PackedStringArray("treasure_bar")]
+[node name="Chest" type="Area2D" node_paths=PackedStringArray("chest_progress")]
 position = Vector2(-17, 18)
 script = ExtResource("1_ih0yb")
-treasure_bar = NodePath("TreasureProgress")
+chest_progress = NodePath("ChestProgress")
 
 [node name="TreasureChestSprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -27,7 +27,7 @@ texture = ExtResource("2_uteaq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xq7m3")
 
-[node name="TreasureProgress" type="ProgressBar" parent="." node_paths=PackedStringArray("chest")]
+[node name="ChestProgress" type="ProgressBar" parent="." node_paths=PackedStringArray("chest")]
 offset_left = -15.0
 offset_top = 11.0
 offset_right = 15.0
