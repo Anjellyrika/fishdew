@@ -11,21 +11,24 @@ enum {
 	Collected
 }
 
+var top_bounds: float
+var bot_bounds: float
+var rod_x: float
 var state = NonExistent
 var rand_num: int
 
 @onready var root = get_owner()
 
 func _ready():
-	pass
+	get_owner().ready.connect(set_bounds)
 
+func set_bounds():
+	top_bounds = root.rod_top_pos.y + root.edge_width
+	bot_bounds = root.rod_bot_pos.y - root.edge_width
+	rod_x = root.rod_top_pos.x
 
 func _process(_delta):
-	var top_bounds = root.rod_top_pos.y + root.edge_width
-	var bot_bounds = root.rod_bot_pos.y - root.edge_width
-	var rod_x = root.rod_top_pos.x
 	var chest = preload("res://src/fishing_lvl/chest.tscn").instantiate()
-	
 	match state:
 		NonExistent:
 			pass
