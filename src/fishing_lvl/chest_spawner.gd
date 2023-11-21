@@ -11,9 +11,8 @@ enum {
 
 var state = NonExistent
 var rand_num: int
-var treasureCollected = 0
 
-@onready var root = get_parent()
+@onready var root = get_owner()
 @onready var top_bounds
 @onready var bot_bounds
 

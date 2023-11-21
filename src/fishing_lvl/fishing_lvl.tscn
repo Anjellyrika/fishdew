@@ -18,8 +18,9 @@ bg_color = Color(0.423529, 0.227451, 0.117647, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufmk4"]
 bg_color = Color(0.4, 0.843137, 0.552941, 1)
 
-[node name="MainFishingLevel" type="Node2D"]
+[node name="MainFishingLevel" type="Node2D" node_paths=PackedStringArray("chest_spawner")]
 script = ExtResource("1_ynd5m")
+chest_spawner = NodePath("ChestSpawner")
 
 [node name="ChestSpawner" parent="." instance=ExtResource("6_bmw5w")]
 
