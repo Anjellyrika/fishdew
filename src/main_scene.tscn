@@ -121,7 +121,7 @@ by Jelly
 [/center]"
 fit_content = true
 
-[node name="MainBtns" type="VBoxContainer" parent="HUDLayer/HUD"]
+[node name="StateLabel" type="VBoxContainer" parent="HUDLayer/HUD"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -135,13 +135,13 @@ offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="HUDLayer/HUD/MainBtns"]
+[node name="Label" type="Label" parent="HUDLayer/HUD/StateLabel"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_nq22c")
 text = "Got one!!"
 horizontal_alignment = 1
 
-[node name="StartBtn" type="Button" parent="HUDLayer/HUD/MainBtns"]
+[node name="StartBtn" type="Button" parent="HUDLayer/HUD/StateLabel"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -150,22 +150,13 @@ theme_override_fonts/font = ExtResource("2_nq22c")
 theme_override_font_sizes/font_size = 12
 text = "Reel it in"
 
-[node name="FishingLine" type="CanvasGroup" parent="."]
-
-[node name="Ripple" type="Node2D" parent="FishingLine"]
-script = ExtResource("3_355el")
-
-[node name="Line2D" type="Line2D" parent="FishingLine"]
-position = Vector2(574, 410)
-points = PackedVector2Array(0, 1, 0, 94)
-width = 2.0
-default_color = Color(0.827451, 0.827451, 0.827451, 1)
-
-[node name="Player" parent="." instance=ExtResource("3_b78w1")]
-position = Vector2(574, 363)
+[node name="WaitTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 zoom = Vector2(1.5, 1.5)
 
-[connection signal="pressed" from="HUDLayer/HUD/MainBtns/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="HUDLayer/HUD/StateLabel/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_timer_timeout"]
