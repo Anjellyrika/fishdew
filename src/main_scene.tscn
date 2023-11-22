@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wij8a")
 
-[node name="Overworld Layer" type="Control" parent="."]
+[node name="OverworldLayer" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Grass" type="ColorRect" parent="Overworld Layer"]
+[node name="Grass" type="ColorRect" parent="OverworldLayer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,12 +31,38 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0392157, 0.796078, 0.6, 1)
 
-[node name="River" type="ColorRect" parent="Overworld Layer"]
+[node name="River" type="ColorRect" parent="OverworldLayer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.756863, 0.972549, 1)
+
+[node name="ActorLayer" type="Node2D" parent="."]
+
+[node name="Player" parent="ActorLayer" instance=ExtResource("3_b78w1")]
+position = Vector2(574, 377)
+
+[node name="FishingLine" type="CanvasGroup" parent="ActorLayer"]
+
+[node name="Ripple" type="Node2D" parent="ActorLayer/FishingLine"]
+script = ExtResource("3_355el")
+
+[node name="Line2D" type="Line2D" parent="ActorLayer/FishingLine"]
+position = Vector2(574, 410)
+points = PackedVector2Array(0, 1, 0, 94)
+width = 2.0
+default_color = Color(0.827451, 0.827451, 0.827451, 1)
+
+[node name="LevelBG" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.756863, 0.972549, 1)
@@ -57,8 +83,8 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 40.0
 offset_top = 29.0
-offset_right = 908.0
-offset_bottom = 22.0
+offset_right = 230.0
+offset_bottom = -537.0
 grow_vertical = 2
 
 [node name="FishCount" type="Label" parent="HUDLayer/HUD/Collection"]

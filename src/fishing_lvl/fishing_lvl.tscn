@@ -53,7 +53,7 @@ position = Vector2(587, 557)
 shape = SubResource("RectangleShape2D_hi66l")
 
 [node name="Bobber" parent="." instance=ExtResource("4_r0ydv")]
-position = Vector2(587, 418)
+position = Vector2(587, 473)
 
 [node name="Fish" parent="." instance=ExtResource("5_u6fi8")]
 position = Vector2(586, 412)
