@@ -1,8 +1,9 @@
 extends Control
 
+#@onready var actors: Node2D = $ActorLayer/Player
 @onready var hud: Control = $HUDLayer/HUD
 @onready var collection: VFlowContainer = $HUDLayer/HUD/Collection
-@onready var main_buttons: VBoxContainer = $HUDLayer/HUD/MainBtns
+@onready var level_bg: ColorRect = $LevelBG
 @onready var camera: Camera2D = $Camera2D
 
 var level_instance: Node2D
@@ -27,10 +28,7 @@ func load_fish_level():
 		add_child(level_instance)
 
 
-func _process(delta):
-	pass
-
-
 func _on_start_btn_pressed():
 	load_fish_level()
 	hud.visible = false
+	level_bg.visible = true
