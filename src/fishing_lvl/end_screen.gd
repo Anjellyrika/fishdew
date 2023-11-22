@@ -7,7 +7,7 @@ func _ready():
 
 
 func display_score(outcome: String):
-	var treasure_score = root.treasure
+	var treasure_score = root.treasure_count
 	$EndScreenElements/VBox/TreasureCollected.text = ""
 	$EndScreenElements/VBox/Outcome.text = "You " + outcome + " the fish!"
 	if outcome == "caught":

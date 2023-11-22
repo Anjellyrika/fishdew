@@ -1,9 +1,10 @@
 extends Node2D
 
-@export var chest_spawner: ChestSpawner
-@export var fish: Fish
+signal treasure_added
 
-var treasure = 0
+@export var chest_spawner: ChestSpawner
+
+var treasure_count = 0
 var top_bounds: float
 var bot_bounds: float
 var rod_x: float
@@ -26,4 +27,9 @@ func _process(delta):
 
 
 func add_treasure():
-	treasure += 1
+	treasure_count += 1
+
+
+func _on_progress_bar_fish_caught():
+	Global.fish_caught += 1
+	Global.treasure_inventory += treasure_count

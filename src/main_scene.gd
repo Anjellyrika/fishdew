@@ -7,10 +7,9 @@ extends Control
 
 var level_instance: Node2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	collection.get_node("FishCount").set_text("Fish caught: %d" % Global.fish_caught)
+	collection.get_node("TreasureCount").set_text("Treasure: %d" % Global.treasure_inventory)
 
 func unload_level():
 	if is_instance_valid(level_instance):
@@ -26,7 +25,6 @@ func load_fish_level():
 		add_child(level_instance)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 

@@ -18,10 +18,9 @@ bg_color = Color(0.423529, 0.227451, 0.117647, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufmk4"]
 bg_color = Color(0.4, 0.843137, 0.552941, 1)
 
-[node name="MainFishingLevel" type="Node2D" node_paths=PackedStringArray("chest_spawner", "fish")]
+[node name="MainFishingLevel" type="Node2D" node_paths=PackedStringArray("chest_spawner")]
 script = ExtResource("1_ynd5m")
 chest_spawner = NodePath("ChestSpawner")
-fish = NodePath("Fish")
 
 [node name="ChestSpawner" parent="." instance=ExtResource("6_bmw5w")]
 
@@ -97,5 +96,6 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Fish" to="Fish" method="_on_body_entered"]
 [connection signal="body_exited" from="Fish" to="Fish" method="_on_body_exited"]
+[connection signal="fish_caught" from="Control/ProgressBar" to="." method="_on_progress_bar_fish_caught"]
 [connection signal="fish_caught" from="Control/ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_fish_caught"]
 [connection signal="fish_lost" from="Control/ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_fish_lost"]
