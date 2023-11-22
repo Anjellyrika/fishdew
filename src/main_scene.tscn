@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbq64xvkkrvr3"]
+[gd_scene load_steps=4 format=3 uid="uid://bbq64xvkkrvr3"]
 
 [ext_resource type="Script" path="res://src/main_scene.gd" id="1_wij8a"]
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_nq22c"]
+[ext_resource type="PackedScene" uid="uid://cqewy85ekx2sx" path="res://src/actors/player.tscn" id="3_b78w1"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -12,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wij8a")
 
-[node name="HUD" type="Control" parent="."]
+[node name="Overworld Layer" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,29 +21,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="RichTextLabel" parent="HUD"]
+[node name="Grass" type="ColorRect" parent="Overworld Layer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 457.0
-offset_top = 137.0
-offset_right = -454.0
-offset_bottom = -302.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_vertical = 3
-theme_override_colors/default_color = Color(0.494118, 0.764706, 0.94902, 1)
-theme_override_fonts/normal_font = ExtResource("2_nq22c")
-theme_override_font_sizes/normal_font_size = 28
-bbcode_enabled = true
-text = "[center]
-FISHDEW
-by Jelly
-[/center]"
-fit_content = true
+color = Color(0.0392157, 0.796078, 0.6, 1)
 
-[node name="Collection" type="VFlowContainer" parent="HUD"]
+[node name="River" type="ColorRect" parent="Overworld Layer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.756863, 0.972549, 1)
+
+[node name="HUDLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="HUDLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Collection" type="VFlowContainer" parent="HUDLayer/HUD"]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -52,17 +60,42 @@ offset_right = 908.0
 offset_bottom = 22.0
 grow_vertical = 2
 
-[node name="FishCount" type="Label" parent="HUD/Collection"]
+[node name="FishCount" type="Label" parent="HUDLayer/HUD/Collection"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.0666667, 0.145098, 0.309804, 1)
 theme_override_fonts/font = ExtResource("2_nq22c")
 text = "Fish caught:"
 
-[node name="TreasureCount" type="Label" parent="HUD/Collection"]
+[node name="TreasureCount" type="Label" parent="HUDLayer/HUD/Collection"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.0666667, 0.145098, 0.309804, 1)
 theme_override_fonts/font = ExtResource("2_nq22c")
 text = "Treasure:"
 
-[node name="MainBtns" type="VBoxContainer" parent="HUD"]
+[node name="Title" type="RichTextLabel" parent="HUDLayer/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 459.0
+offset_top = 73.0
+offset_right = -452.0
+offset_bottom = -366.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.721569, 1, 0.996078, 1)
+theme_override_fonts/normal_font = ExtResource("2_nq22c")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]
+FISHDEW
+by Jelly
+[/center]"
+fit_content = true
+
+[node name="MainBtns" type="VBoxContainer" parent="HUDLayer/HUD"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -76,15 +109,20 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartBtn" type="Button" parent="HUD/MainBtns"]
+[node name="StartBtn" type="Button" parent="HUDLayer/HUD/MainBtns"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.721221, 1, 0.995472, 1)
 theme_override_fonts/font = ExtResource("2_nq22c")
 theme_override_font_sizes/font_size = 12
 text = "Start Fishing!"
 
+[node name="Player" parent="." instance=ExtResource("3_b78w1")]
+position = Vector2(574, 363)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+zoom = Vector2(1.5, 1.5)
 
-[connection signal="pressed" from="HUD/MainBtns/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="HUDLayer/HUD/MainBtns/StartBtn" to="." method="_on_start_btn_pressed"]

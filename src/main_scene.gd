@@ -1,8 +1,8 @@
 extends Control
 
-@onready var hud: Control = $HUD
-@onready var collection: VFlowContainer = $HUD/Collection
-@onready var main_buttons: VBoxContainer = $HUD/MainBtns
+@onready var hud: Control = $HUDLayer/HUD
+@onready var collection: VFlowContainer = $HUDLayer/HUD/Collection
+@onready var main_buttons: VBoxContainer = $HUDLayer/HUD/MainBtns
 @onready var camera: Camera2D = $Camera2D
 
 var level_instance: Node2D
