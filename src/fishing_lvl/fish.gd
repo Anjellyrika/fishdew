@@ -4,8 +4,8 @@ extends Area2D
 
 enum {
 	Wait,
-	Reposition,
 	Move,
+	Reposition,
 }
 
 signal fish_progress_increased
@@ -19,8 +19,6 @@ var bot_bounds: float
 
 # Movement variables
 var speed_bounds
-var direction
-var velocity
 var target_position: Vector2
 
 var state = Wait
@@ -30,45 +28,45 @@ var state = Wait
 
 func _ready():
 	get_owner().ready.connect(set_start_position)
-	target_position = global_position
+	target_position = position
 
 
 func set_start_position():
 	top_bounds = root.top_bounds
 	bot_bounds = root.bot_bounds
-	global_position = Vector2(root.rod_x, randf_range(top_bounds, bot_bounds))
+	position = Vector2(root.rod_x, randf_range(top_bounds, bot_bounds))
 
 
 func get_new_target():
-	target_position = Vector2(root.rod_x, randf_range(top_bounds, bot_bounds))
+	var max_distance = [global_position.y - top_bounds, bot_bounds - global_position.y]
+	var target_y_down = clamp(global_position.y + randf_range(50, max_distance.pick_random()), top_bounds, bot_bounds)
+	var target_y_up = clamp(global_position.y - randf_range(50, max_distance.pick_random()), top_bounds, bot_bounds)
+	target_position = Vector2(root.rod_x, [target_y_down, target_y_up].pick_random())
 
 
 func _process(delta):
-	speed_bounds = 500
-	
+	print(state)
+	speed_bounds = root.fish_speed
 	match state:
 		Wait:
 			wait()
+		Move:
+			global_position = global_position.lerp(target_position, delta * speed_bounds.pick_random())
+			if is_at_target_position():
+				state = Reposition
 		Reposition:
 				get_new_target()
 				state = Wait
-		Move:
-			direction = global_position.direction_to(target_position)
-			velocity = direction.y * speed_bounds * delta
-			global_position += Vector2(0, velocity)
-			if is_at_target_position():
-				state = Reposition
 
 
 func wait():
 	if waitTimer.time_left == 0:
-		waitTimer.start(1)
-		state = [0,2].pick_random()
+		waitTimer.start(0.75)
+		state = randi_range(0,1)
 
 
 func is_at_target_position():
 	var tolerance = fish_size.shape.height
-	print("check tolerance ", target_position.y, abs(global_position.y - target_position.y) < tolerance)##
 	return abs(global_position.y - target_position.y) < tolerance
 
 

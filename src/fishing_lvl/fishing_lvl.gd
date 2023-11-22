@@ -27,6 +27,7 @@ func _ready():
 	rod_x = rod_top_pos.x
 	
 	chest_spawn_rate = [4,8,12].pick_random()
+	fish_speed = [[2,4], [6,7], [7,8]].pick_random()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

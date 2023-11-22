@@ -56,8 +56,7 @@ shape = SubResource("RectangleShape2D_hi66l")
 position = Vector2(587, 473)
 
 [node name="Fish" parent="." instance=ExtResource("5_u6fi8")]
-position = Vector2(586, 412)
-speed_bounds = [8, 25]
+position = Vector2(585, 311)
 
 [node name="ProgressBar" type="ProgressBar" parent="." node_paths=PackedStringArray("fish")]
 offset_left = 620.0
