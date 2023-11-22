@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://fy45fj0828c8"]
+[gd_scene load_steps=6 format=3 uid="uid://fy45fj0828c8"]
 
 [ext_resource type="Script" path="res://src/main_scene.gd" id="1_wij8a"]
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_nq22c"]
 [ext_resource type="Script" path="res://src/shapes/ripple.gd" id="3_355el"]
 [ext_resource type="PackedScene" uid="uid://cqewy85ekx2sx" path="res://src/actors/player.tscn" id="3_b78w1"]
+[ext_resource type="AudioStream" uid="uid://bjpyi3ksy8lgm" path="res://assets/audio/water_drop.mp3" id="4_csqqm"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -56,6 +57,10 @@ default_color = Color(0.827451, 0.827451, 0.827451, 1)
 
 [node name="Player" parent="ActorLayer" instance=ExtResource("3_b78w1")]
 position = Vector2(574, 377)
+
+[node name="FishBite" type="AudioStreamPlayer" parent="ActorLayer"]
+stream = ExtResource("4_csqqm")
+volume_db = -2.0
 
 [node name="LevelBG" type="ColorRect" parent="."]
 visible = false

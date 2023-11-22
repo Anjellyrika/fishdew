@@ -47,12 +47,14 @@ func _process(delta):
 			state_label.text = "Got one!!"
 			start_btn.visible = true
 		InGame:
-			state = Waiting
+			pass
 
 
 func _on_timer_timeout():
-	if randi_range(0, 1) == 0:
-		state = Bite
+	if state == Waiting:
+		if randi_range(0, 1) == 0:
+			$ActorLayer/FishBite.play()
+			state = Bite
 
 func _on_start_btn_pressed():
 	load_fish_level()

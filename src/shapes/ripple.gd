@@ -4,6 +4,9 @@ var start_position = Vector2(286.5,253)
 var target_vector = Vector2(0,-3)
 var target_position = start_position + target_vector
 var moving = true
+var timer_interval = 1
+
+@onready var root = get_owner()
 
 func _ready():
 	position = start_position
@@ -20,8 +23,10 @@ func set_move_back():
 
 
 func wait():
+	if root.state == 1:
+		timer_interval = 0.25
 	moving = false
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(timer_interval).timeout
 	moving = true
 
 
