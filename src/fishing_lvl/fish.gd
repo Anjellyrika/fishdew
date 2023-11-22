@@ -45,13 +45,12 @@ func get_new_target():
 
 
 func _process(delta):
-	print(state)
 	speed_bounds = root.fish_speed
 	match state:
 		Wait:
 			wait()
 		Move:
-			global_position = global_position.lerp(target_position, delta * speed_bounds.pick_random())
+			global_position = global_position.lerp(target_position, 0.5 * delta * speed_bounds.pick_random())
 			if is_at_target_position():
 				state = Reposition
 		Reposition:
