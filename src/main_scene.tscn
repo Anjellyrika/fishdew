@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/main_scene.gd" id="1_wij8a"]
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_nq22c"]
-[ext_resource type="Script" path="res://src/shapes/circle.gd" id="3_56l2i"]
+[ext_resource type="Script" path="res://src/shapes/ripple.gd" id="3_355el"]
 [ext_resource type="PackedScene" uid="uid://cqewy85ekx2sx" path="res://src/actors/player.tscn" id="3_b78w1"]
 
 [node name="Main" type="Control"]
@@ -122,7 +122,7 @@ text = "Start Fishing!"
 [node name="FishingLine" type="CanvasGroup" parent="."]
 
 [node name="Ripple" type="Node2D" parent="FishingLine"]
-script = ExtResource("3_56l2i")
+script = ExtResource("3_355el")
 
 [node name="Line2D" type="Line2D" parent="FishingLine"]
 position = Vector2(574, 410)
