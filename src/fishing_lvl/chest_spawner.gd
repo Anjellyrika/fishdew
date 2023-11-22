@@ -5,20 +5,24 @@ extends Node
 enum {
 	NonExistent,
 	Spawning,
-	Spawned
+	Spawned,
+	Powerup_Spawned,
 }
 
 signal chest_collected
+signal powerup_collected
 
 var state = NonExistent
 var offscreen_position: Vector2
 
 @onready var root = get_owner()
 @onready var chest = $Chest
+@onready var powerup = $Powerup
 
 func _ready():
 	offscreen_position = chest.position
 	chest.collected.connect(despawn)
+	powerup.collected.connect(despawn)
 
 func _process(_delta):
 	match state:
@@ -26,18 +30,25 @@ func _process(_delta):
 			pass
 		Spawning: # attempt to spawn a chest
 			if randi_range(1, root.chest_spawn_rate) == 1:
-				chest.position = Vector2(root.rod_x, randf_range(root.top_bounds, root.bot_bounds))
-				state = Spawned
+				if randi_range(1, root.chest_spawn_rate) == 1:
+					powerup.position = Vector2(root.rod_x, randf_range(root.top_bounds, root.bot_bounds))
+					state = Powerup_Spawned
+				else:
+					chest.position = Vector2(root.rod_x, randf_range(root.top_bounds, root.bot_bounds))
+					state = Spawned
 		Spawned:
 			pass
 
 
-func _on_timer_timeout():
-	if state == NonExistent:
+func _on_timer_timeout():if state == NonExistent:
 		state = Spawning
 
 
 func despawn():
-	chest.position = offscreen_position
-	chest_collected.emit()
+	if state == Spawned:
+		chest.position = offscreen_position
+		chest_collected.emit()
+	if state == Powerup_Spawned:
+		powerup.position = offscreen_position
+		powerup_collected.emit()
 	state = NonExistent

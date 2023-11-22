@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgkyari10d2gs"]
+[gd_scene load_steps=4 format=3 uid="uid://dgkyari10d2gs"]
 
 [ext_resource type="Script" path="res://src/fishing_lvl/chest_spawner.gd" id="1_ek2du"]
 [ext_resource type="PackedScene" uid="uid://cmjndycxmndy1" path="res://src/fishing_lvl/chest.tscn" id="2_m301v"]
+[ext_resource type="PackedScene" uid="uid://b7kfcl1gco8fx" path="res://src/fishing_lvl/powerup.tscn" id="3_24utj"]
 
 [node name="ChestSpawner" type="Node"]
 script = ExtResource("1_ek2du")
 
 [node name="Chest" parent="." instance=ExtResource("2_m301v")]
 position = Vector2(-21, 18)
+
+[node name="Powerup" parent="." instance=ExtResource("3_24utj")]
+position = Vector2(-21, 74)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

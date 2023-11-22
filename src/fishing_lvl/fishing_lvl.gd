@@ -22,11 +22,12 @@ var chest_spawn_rate
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	chest_spawner.chest_collected.connect(add_treasure)
+	chest_spawner.powerup_collected.connect(activate_powerup)
 	top_bounds = rod_top_pos.y + edge_width
 	bot_bounds = rod_bot_pos.y - edge_width
 	rod_x = rod_top_pos.x
 	
-	chest_spawn_rate = [4,8,12].pick_random()
+	chest_spawn_rate = [4,8,12].pick_random() # lower is better
 	fish_speed = [[2,4], [6,7], [7,8]].pick_random()
 
 
@@ -37,6 +38,14 @@ func _process(delta):
 
 func add_treasure():
 	treasure_count += 1
+
+
+func activate_powerup(): # Powerup freezes the fish for 3 seconds
+	var temp = fish_speed
+	fish_speed = [0,0]
+	await get_tree().create_timer(3).timeout
+	fish_speed = temp
+	
 
 
 func _on_progress_bar_fish_caught():

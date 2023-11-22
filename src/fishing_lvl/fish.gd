@@ -12,6 +12,7 @@ signal fish_progress_increased
 signal fish_progress_decreased
 
 @onready var fish_size = $FishCollision
+@onready var sprite = $Icon
 
 # Movement bounds
 var top_bounds: float
@@ -29,6 +30,7 @@ var state = Wait
 func _ready():
 	get_owner().ready.connect(set_start_position)
 	target_position = position
+	sprite.material.set_shader_parameter("frozen", false)
 
 
 func set_start_position():
@@ -46,6 +48,7 @@ func get_new_target():
 
 func _process(delta):
 	speed_bounds = root.fish_speed
+	set_shader(speed_bounds)
 	match state:
 		Wait:
 			wait()
@@ -67,6 +70,13 @@ func wait():
 func is_at_target_position():
 	var tolerance = fish_size.shape.height
 	return abs(global_position.y - target_position.y) < tolerance
+
+
+func set_shader(current_speed):
+	if current_speed == [0,0]:
+		sprite.material.set_shader_parameter("frozen", true)
+	else:
+		sprite.material.set_shader_parameter("frozen", false)
 
 
 func _on_body_entered(body):

@@ -75,19 +75,21 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 56.0
-offset_top = 58.0
-offset_right = 367.0
-offset_bottom = 157.0
+offset_left = 704.0
+offset_top = 77.0
+offset_right = 1111.0
+offset_bottom = 264.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.0666667, 0.145098, 0.309804, 1)
 theme_override_fonts/normal_font = ExtResource("1_uo0hm")
-theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/normal_font_size = 12
 text = "Reel the green bobber in with
 - Left Mouse Button
 - Space
-- Enter"
+- Enter
+
+Look out for the rare Genie powerup! Collecting him will freeze the fish for three seconds"
 
 [connection signal="body_entered" from="Fish" to="Fish" method="_on_body_entered"]
 [connection signal="body_exited" from="Fish" to="Fish" method="_on_body_exited"]
