@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbq64xvkkrvr3"]
+[gd_scene load_steps=5 format=3 uid="uid://fy45fj0828c8"]
 
 [ext_resource type="Script" path="res://src/main_scene.gd" id="1_wij8a"]
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_nq22c"]
+[ext_resource type="Script" path="res://src/shapes/circle.gd" id="3_56l2i"]
 [ext_resource type="PackedScene" uid="uid://cqewy85ekx2sx" path="res://src/actors/player.tscn" id="3_b78w1"]
 
 [node name="Main" type="Control"]
@@ -117,6 +118,17 @@ theme_override_colors/font_color = Color(0.721221, 1, 0.995472, 1)
 theme_override_fonts/font = ExtResource("2_nq22c")
 theme_override_font_sizes/font_size = 12
 text = "Start Fishing!"
+
+[node name="FishingLine" type="CanvasGroup" parent="."]
+
+[node name="Ripple" type="Node2D" parent="FishingLine"]
+script = ExtResource("3_56l2i")
+
+[node name="Line2D" type="Line2D" parent="FishingLine"]
+position = Vector2(574, 410)
+points = PackedVector2Array(0, 1, 0, 94)
+width = 2.0
+default_color = Color(0.827451, 0.827451, 0.827451, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_b78w1")]
 position = Vector2(574, 363)
