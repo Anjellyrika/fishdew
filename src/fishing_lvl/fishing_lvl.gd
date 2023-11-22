@@ -5,10 +5,16 @@ signal treasure_added
 @export var chest_spawner: ChestSpawner
 
 var treasure_count = 0
+
 var top_bounds: float
 var bot_bounds: float
 var rod_x: float
 
+# Set game properties
+var fish_speed
+var chest_spawn_rate
+
+# Set movement bounds
 @onready var rod_top_pos = $FishingRod/TopEdge.position
 @onready var rod_bot_pos = $FishingRod/BottomEdge.position
 @onready var edge_width = $FishingRod/TopEdge.shape.size.y
@@ -19,6 +25,8 @@ func _ready():
 	top_bounds = rod_top_pos.y + edge_width
 	bot_bounds = rod_bot_pos.y - edge_width
 	rod_x = rod_top_pos.x
+	
+	chest_spawn_rate = [4,8,12].pick_random()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

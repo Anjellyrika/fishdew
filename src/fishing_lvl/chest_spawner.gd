@@ -25,16 +25,18 @@ func _process(_delta):
 		NonExistent:
 			pass
 		Spawning: # attempt to spawn a chest
-			if randi_range(1,8) == 1:
+			if randi_range(1, root.chest_spawn_rate) == 1:
 				chest.position = Vector2(root.rod_x, randf_range(root.top_bounds, root.bot_bounds))
 				state = Spawned
 		Spawned:
 			pass
 
+
 func _on_timer_timeout():
 	if state == NonExistent:
 		state = Spawning
-		
+
+
 func despawn():
 	chest.position = offscreen_position
 	chest_collected.emit()
