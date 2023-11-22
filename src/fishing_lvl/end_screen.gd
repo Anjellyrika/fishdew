@@ -32,4 +32,5 @@ func _on_progress_bar_fish_caught():
 func _on_progress_bar_fish_lost():
 	self.visible = true
 	get_tree().paused = true
+	$WilhelmScream.play(0.82)
 	display_score("lost")

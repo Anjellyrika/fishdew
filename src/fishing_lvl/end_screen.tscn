@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://uuv6r24lldwk"]
+[gd_scene load_steps=6 format=3 uid="uid://uuv6r24lldwk"]
 
 [ext_resource type="Script" path="res://src/fishing_lvl/end_screen.gd" id="1_yh6o0"]
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_rwnjd"]
+[ext_resource type="AudioStream" uid="uid://bp6tmlgjw4sko" path="res://assets/audio/wilhelm_scream.mp3" id="3_vbjhr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1pnuh"]
 font = ExtResource("2_rwnjd")
@@ -74,6 +75,10 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("2_rwnjd")
 theme_override_font_sizes/font_size = 12
 text = "Exit"
+
+[node name="WilhelmScream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vbjhr")
+volume_db = -5.0
 
 [connection signal="pressed" from="EndScreenElements/VBox/Keep fishing" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="EndScreenElements/VBox/Exit" to="." method="_on_exit_pressed"]
