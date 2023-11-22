@@ -27,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.301961, 0.301961, 0.301961, 1)
+color = Color(0.776471, 0.776471, 0.776471, 0.372549)
 
 [node name="EndScreenElements" type="MarginContainer" parent="."]
 layout_mode = 1

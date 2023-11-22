@@ -59,13 +59,7 @@ position = Vector2(587, 418)
 position = Vector2(586, 412)
 speed_bounds = [8, 25]
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="ProgressBar" type="ProgressBar" parent="Control" node_paths=PackedStringArray("fish")]
-layout_mode = 0
+[node name="ProgressBar" type="ProgressBar" parent="." node_paths=PackedStringArray("fish")]
 offset_left = 620.0
 offset_top = 68.0
 offset_right = 645.0
@@ -75,27 +69,28 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ufmk4")
 fill_mode = 3
 show_percentage = false
 script = ExtResource("7_4d5vr")
-fish = NodePath("../../Fish")
+fish = NodePath("../Fish")
 metadata/_edit_use_anchors_ = true
 
-[node name="Controls" type="RichTextLabel" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_bottom = 0.197531
-offset_left = 65.0
-offset_top = 62.0
-offset_right = 239.0
-offset_bottom = 62.0
+[node name="Controls" type="RichTextLabel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 58.0
+offset_right = 367.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_uo0hm")
 theme_override_font_sizes/normal_font_size = 10
 text = "Reel the green bobber in with
 - Left Mouse Button
 - Space
 - Enter"
-metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Fish" to="Fish" method="_on_body_entered"]
 [connection signal="body_exited" from="Fish" to="Fish" method="_on_body_exited"]
-[connection signal="fish_caught" from="Control/ProgressBar" to="." method="_on_progress_bar_fish_caught"]
-[connection signal="fish_caught" from="Control/ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_fish_caught"]
-[connection signal="fish_lost" from="Control/ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_fish_lost"]
+[connection signal="fish_caught" from="ProgressBar" to="." method="_on_progress_bar_fish_caught"]
+[connection signal="fish_caught" from="ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_fish_caught"]
+[connection signal="fish_lost" from="ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_fish_lost"]

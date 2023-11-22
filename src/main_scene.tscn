@@ -78,9 +78,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 459.0
+offset_left = 460.0
 offset_top = 73.0
-offset_right = -452.0
+offset_right = -451.0
 offset_bottom = -366.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -96,7 +96,6 @@ by Jelly
 fit_content = true
 
 [node name="MainBtns" type="VBoxContainer" parent="HUDLayer/HUD"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -104,11 +103,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -80.0
-offset_top = -15.0
+offset_top = -79.0
 offset_right = 80.0
-offset_bottom = 15.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="HUDLayer/HUD/MainBtns"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nq22c")
+text = "Got one!!"
+horizontal_alignment = 1
 
 [node name="StartBtn" type="Button" parent="HUDLayer/HUD/MainBtns"]
 layout_mode = 2
@@ -117,7 +122,7 @@ size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.721221, 1, 0.995472, 1)
 theme_override_fonts/font = ExtResource("2_nq22c")
 theme_override_font_sizes/font_size = 12
-text = "Start Fishing!"
+text = "Reel it in"
 
 [node name="FishingLine" type="CanvasGroup" parent="."]
 
