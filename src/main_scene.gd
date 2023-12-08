@@ -3,7 +3,7 @@ extends Control
 @onready var hud: Control = $HUDLayer/HUD
 @onready var collection: VFlowContainer = $HUDLayer/HUD/Collection
 @onready var level_bg: ColorRect = $LevelBG
-@onready var camera: Camera2D = $Camera2D
+@onready var camera: Camera2D = $OverworldLayer/Camera2D
 @onready var state_label: Label = $HUDLayer/HUD/StateLabel/Label
 @onready var start_btn: Button = $HUDLayer/HUD/StateLabel/StartBtn
 
