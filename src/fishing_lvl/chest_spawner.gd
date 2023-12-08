@@ -16,6 +16,7 @@ var state = NonExistent
 var offscreen_position: Vector2
 
 @onready var root = get_owner()
+@onready var x_pos = ProjectSettings.get_setting("display/window/size/window_width_override") / 2
 @onready var chest = $Chest
 @onready var powerup = $Powerup
 
@@ -31,10 +32,10 @@ func _process(_delta):
 		Spawning: # attempt to spawn a chest
 			if randi_range(1, root.chest_spawn_rate) == 1:
 				if randi_range(1, root.chest_spawn_rate) == 1:
-					powerup.position = Vector2(root.rod_x, randf_range(root.top_bounds, root.bot_bounds))
+					powerup.position = Vector2(x_pos, randi_range(root.top_bounds, root.bot_bounds))
 					state = Powerup_Spawned
 				else:
-					chest.position = Vector2(root.rod_x, randf_range(root.top_bounds, root.bot_bounds))
+					chest.position = Vector2(x_pos, randi_range(root.top_bounds, root.bot_bounds))
 					state = Spawned
 		Spawned:
 			pass
