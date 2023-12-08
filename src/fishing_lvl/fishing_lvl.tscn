@@ -33,6 +33,7 @@ visible = false
 
 [node name="FishingRod" type="StaticBody2D" parent="."]
 scale = Vector2(1.5, 1.5)
+collision_layer = 4
 
 [node name="Rod" type="ColorRect" parent="FishingRod"]
 offset_left = -32.0
@@ -70,10 +71,13 @@ metadata/_edit_use_anchors_ = true
 [node name="Bobber" parent="." instance=ExtResource("4_r0ydv")]
 position = Vector2(0, -4)
 scale = Vector2(1.5, 1.5)
+collision_mask = 4
 
 [node name="Fish" parent="." instance=ExtResource("5_u6fi8")]
-position = Vector2(0, 40)
+position = Vector2(0, 36)
 scale = Vector2(0.125, 0.125)
+collision_layer = 1
+collision_mask = 4
 
 [node name="Controls" type="RichTextLabel" parent="."]
 visible = false
@@ -99,5 +103,3 @@ Look out for the rare Genie powerup! Collecting him will freeze the fish for thr
 [connection signal="fish_caught" from="FishingRod/ProgressBar" to="." method="_on_progress_bar_fish_caught"]
 [connection signal="fish_caught" from="FishingRod/ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_fish_caught"]
 [connection signal="fish_lost" from="FishingRod/ProgressBar" to="UILayer/EndScreen" method="_on_progress_bar_fish_lost"]
-[connection signal="body_entered" from="Fish" to="Fish" method="_on_body_entered"]
-[connection signal="body_exited" from="Fish" to="Fish" method="_on_body_exited"]

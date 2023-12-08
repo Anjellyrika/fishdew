@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://sywnhmj87o7k"]
+[gd_scene load_steps=7 format=3 uid="uid://sywnhmj87o7k"]
 
 [ext_resource type="Script" path="res://src/fishing_lvl/fish.gd" id="1_5cr0a"]
 [ext_resource type="Texture2D" uid="uid://bq8v13cudgyag" path="res://assets/Fish.png" id="2_pqlhc"]
 [ext_resource type="Shader" path="res://src/fishing_lvl/fish_frozen.gdshader" id="2_rlqgm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqkri"]
+size = Vector2(560, 384)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gf66l"]
 shader = ExtResource("2_rlqgm")
@@ -12,16 +15,25 @@ shader_parameter/frozen = true
 radius = 192.0
 height = 544.0
 
-[node name="Fish" type="Area2D"]
+[node name="Fish" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 5
+motion_mode = 1
 script = ExtResource("1_5cr0a")
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_vqkri")
+
+[node name="FishArea" type="Area2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="FishArea"]
 texture_filter = 1
 material = SubResource("ShaderMaterial_gf66l")
 position = Vector2(2, 0)
 texture = ExtResource("2_pqlhc")
 
-[node name="FishCollision" type="CollisionShape2D" parent="."]
+[node name="FishCollision" type="CollisionShape2D" parent="FishArea"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nt8mh")
 
@@ -30,3 +42,6 @@ shape = SubResource("CapsuleShape2D_nt8mh")
 [node name="Timer" type="Timer" parent="WaitControl"]
 process_callback = 0
 one_shot = true
+
+[connection signal="body_entered" from="FishArea" to="." method="_on_fish_area_body_entered"]
+[connection signal="body_exited" from="FishArea" to="." method="_on_fish_area_body_exited"]

@@ -11,8 +11,8 @@ enum {
 signal fish_progress_increased
 signal fish_progress_decreased
 
-@onready var fish_size = $FishCollision
-@onready var sprite = $Icon
+@onready var fish_size = $FishArea/FishCollision
+@onready var sprite = $FishArea/Icon
 
 # Movement bounds
 var top_bounds: float
@@ -80,11 +80,11 @@ func set_shader(current_speed):
 		sprite.material.set_shader_parameter("frozen", false)
 
 
-func _on_body_entered(body):
+func _on_fish_area_body_entered(body):
 	if body.get_name() == "Bobber":
 		fish_progress_increased.emit()
 
 
-func _on_body_exited(body):
+func _on_fish_area_body_exited(body):
 	if body.get_name() == "Bobber":
 		fish_progress_decreased.emit()
