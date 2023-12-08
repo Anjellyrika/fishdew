@@ -38,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0392157, 0.796078, 0.6, 1)
 
-[node name="River" type="ColorRect" parent="OverworldLayer"]
+[node name="Water" type="ColorRect" parent="OverworldLayer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,9 +61,9 @@ anchor_mode = 0
 script = ExtResource("3_355el")
 
 [node name="Line2D" type="Line2D" parent="ActorLayer/FishingLine"]
-position = Vector2(574, 410)
-points = PackedVector2Array(0, 1, 0, 94)
-width = 2.0
+position = Vector2(960, 712)
+points = PackedVector2Array(0, 1, 0, 184)
+width = 4.0
 default_color = Color(0.827451, 0.827451, 0.827451, 1)
 
 [node name="Player" parent="ActorLayer" instance=ExtResource("3_b78w1")]

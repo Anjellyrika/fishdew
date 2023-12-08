@@ -47,7 +47,7 @@ animations = [{
 size = Vector2(512, 1167)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(970, 580)
+position = Vector2(960, 580)
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 2
