@@ -16,7 +16,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(0.0208044, 0.15, 2.5),
 "update": 0,
-"values": [Vector2(574, 377), Vector2(574, 375), Vector2(574, 377)]
+"values": [Vector2(960, 576), Vector2(960, 580), Vector2(960, 576)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3jxsl"]
@@ -44,10 +44,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgh2q"]
-size = Vector2(44, 88)
+size = Vector2(512, 1167)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(574, 376)
+position = Vector2(970, 580)
+scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ma8uq")
@@ -58,11 +59,10 @@ libraries = {
 }
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.125004, 3.8147e-06)
-scale = Vector2(0.0854492, 0.0854492)
+texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_88aie")
 animation = &"fish_bite"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_bgh2q")

@@ -9,8 +9,8 @@ shader = ExtResource("2_rlqgm")
 shader_parameter/frozen = true
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt8mh"]
-radius = 13.0
-height = 36.0
+radius = 14.0
+height = 40.0
 
 [node name="Fish" type="Area2D"]
 script = ExtResource("1_5cr0a")

@@ -20,7 +20,7 @@ chest_progress = NodePath("ChestProgress")
 
 [node name="TreasureChestSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-0.25, 0.25)
+position = Vector2(0.75, 0.25)
 scale = Vector2(0.0637019, 0.0637019)
 texture = ExtResource("2_uteaq")
 

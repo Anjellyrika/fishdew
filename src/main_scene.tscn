@@ -22,6 +22,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -30,6 +32,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -640.0
+offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0392157, 0.796078, 0.6, 1)
@@ -39,10 +43,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 437.0
+offset_top = 768.0
+offset_right = -640.0
+offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.756863, 0.972549, 1)
+
+[node name="Camera2D" type="Camera2D" parent="OverworldLayer"]
+anchor_mode = 0
 
 [node name="ActorLayer" type="Node2D" parent="."]
 
@@ -58,7 +67,8 @@ width = 2.0
 default_color = Color(0.827451, 0.827451, 0.827451, 1)
 
 [node name="Player" parent="ActorLayer" instance=ExtResource("3_b78w1")]
-position = Vector2(574, 377)
+position = Vector2(960, 576)
+scale = Vector2(0.25, 0.25)
 
 [node name="FishBite" type="AudioStreamPlayer" parent="ActorLayer"]
 stream = ExtResource("4_csqqm")
@@ -75,6 +85,7 @@ grow_vertical = 2
 color = Color(0, 0.756863, 0.972549, 1)
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="HUD" type="Control" parent="HUDLayer"]
 layout_mode = 3
@@ -111,10 +122,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 460.0
-offset_top = 73.0
-offset_right = -451.0
-offset_bottom = -366.0
+offset_left = 172.0
+offset_top = -41.0
+offset_right = -192.0
+offset_bottom = -245.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
@@ -160,10 +171,6 @@ text = "Reel it in"
 [node name="WaitTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
-zoom = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="HUDLayer/HUD/StateLabel/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="timeout" from="WaitTimer" to="." method="_on_timer_timeout"]
