@@ -24,7 +24,6 @@ func _ready():
 
 func unload_level():
 	if is_instance_valid(level_instance):
-		camera.zoom = Vector2(1,1)
 		level_instance.queue_free()
 	level_instance = null
 	state = Waiting
@@ -33,7 +32,6 @@ func unload_level():
 func load_fish_level():
 	unload_level()
 	var level_resource = load("res://src/fishing_lvl/fishing_lvl.tscn")
-	camera.zoom = Vector2(2,2)
 	if level_resource:
 		level_instance = level_resource.instantiate()
 		add_child(level_instance)

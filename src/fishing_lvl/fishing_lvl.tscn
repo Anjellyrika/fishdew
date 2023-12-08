@@ -32,6 +32,7 @@ process_mode = 2
 visible = false
 
 [node name="FishingRod" type="StaticBody2D" parent="."]
+scale = Vector2(1.5, 1.5)
 
 [node name="Rod" type="ColorRect" parent="FishingRod"]
 offset_left = -32.0
@@ -68,6 +69,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Bobber" parent="." instance=ExtResource("4_r0ydv")]
 position = Vector2(0, -4)
+scale = Vector2(1.5, 1.5)
 
 [node name="Fish" parent="." instance=ExtResource("5_u6fi8")]
 position = Vector2(0, 40)
