@@ -23,5 +23,5 @@ shape = SubResource("RectangleShape2D_5qoxo")
 offset_left = -239.0
 offset_top = 278.0
 offset_right = 209.0
-offset_bottom = 326.0
+offset_bottom = 342.0
 metadata/_edit_group_ = true
