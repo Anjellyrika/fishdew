@@ -9,8 +9,8 @@ shader = ExtResource("2_rlqgm")
 shader_parameter/frozen = true
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt8mh"]
-radius = 14.0
-height = 40.0
+radius = 192.0
+height = 544.0
 
 [node name="Fish" type="Area2D"]
 script = ExtResource("1_5cr0a")
@@ -19,7 +19,6 @@ script = ExtResource("1_5cr0a")
 texture_filter = 1
 material = SubResource("ShaderMaterial_gf66l")
 position = Vector2(2, 0)
-scale = Vector2(0.0821006, 0.0769231)
 texture = ExtResource("2_pqlhc")
 
 [node name="FishCollision" type="CollisionShape2D" parent="."]

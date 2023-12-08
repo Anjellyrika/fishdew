@@ -29,14 +29,15 @@ var state = Wait
 
 func _ready():
 	get_owner().ready.connect(set_start_position)
-	target_position = position
+	target_position = global_position
 	sprite.material.set_shader_parameter("frozen", false)
 
 
 func set_start_position():
 	top_bounds = root.top_bounds
 	bot_bounds = root.bot_bounds
-	position = Vector2(root.rod_x, randf_range(top_bounds, bot_bounds))
+	global_position = Vector2(root.rod_x, randf_range(top_bounds, bot_bounds))
+	print(position, global_position)
 
 
 func get_new_target():

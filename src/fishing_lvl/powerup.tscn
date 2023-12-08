@@ -4,22 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://c3ugxpitdmcu1" path="res://assets/powerup.png" id="2_gvecu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qoxo"]
-size = Vector2(26, 25.5)
+size = Vector2(446, 960)
 
 [node name="Chest" instance=ExtResource("1_evsx0")]
 
 [node name="TreasureChestSprite" parent="." index="0"]
 position = Vector2(-1, -1)
-scale = Vector2(0.0730089, 0.0730088)
 texture = ExtResource("2_gvecu")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 6)
+position = Vector2(-2, 1)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="2"]
-position = Vector2(0, -19.75)
+position = Vector2(-15, 24)
 shape = SubResource("RectangleShape2D_5qoxo")
 
 [node name="ChestProgress" parent="." index="3"]
-offset_top = 18.0
-offset_bottom = 25.0
+offset_left = -239.0
+offset_top = 278.0
+offset_right = 209.0
+offset_bottom = 326.0
+metadata/_edit_group_ = true

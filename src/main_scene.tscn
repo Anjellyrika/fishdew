@@ -165,7 +165,6 @@ theme_override_font_sizes/font_size = 24
 text = "  Reel it in  "
 
 [node name="WaitTimer" type="Timer" parent="."]
-wait_time = 3.0
 autostart = true
 
 [connection signal="pressed" from="HUDLayer/HUD/StateLabel/StartBtn" to="." method="_on_start_btn_pressed"]

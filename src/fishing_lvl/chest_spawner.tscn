@@ -8,10 +8,12 @@
 script = ExtResource("1_ek2du")
 
 [node name="Chest" parent="." instance=ExtResource("2_m301v")]
-position = Vector2(-21, 18)
+position = Vector2(-37, 36)
+scale = Vector2(0.125, 0.125)
 
 [node name="Powerup" parent="." instance=ExtResource("3_24utj")]
-position = Vector2(-21, 74)
+position = Vector2(-38, 136)
+scale = Vector2(0.125, 0.125)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

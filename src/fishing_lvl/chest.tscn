@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bfqpgrqixy64o" path="res://assets/Treasure_Chest.png" id="2_uteaq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xq7m3"]
-size = Vector2(26, 26)
+size = Vector2(416, 416)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yncc"]
 bg_color = Color(0.423529, 0.227451, 0.117647, 1)
@@ -20,24 +20,29 @@ chest_progress = NodePath("ChestProgress")
 
 [node name="TreasureChestSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0.75, 0.25)
-scale = Vector2(0.0637019, 0.0637019)
+position = Vector2(17, -18)
 texture = ExtResource("2_uteaq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(17, -18)
 shape = SubResource("RectangleShape2D_xq7m3")
 
 [node name="ChestProgress" type="ProgressBar" parent="." node_paths=PackedStringArray("chest")]
-offset_left = -15.0
-offset_top = 11.0
-offset_right = 15.0
-offset_bottom = 18.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -191.0
+offset_top = 190.0
+offset_right = 225.0
+offset_bottom = 238.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_6yncc")
 theme_override_styles/fill = SubResource("StyleBoxFlat_u6rnb")
 show_percentage = false
 script = ExtResource("2_b1yqj")
 chest = NodePath("..")
-metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
