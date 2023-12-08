@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/fishing_lvl/bobber.gd" id="1_g6qbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cludq"]
-size = Vector2(30, 76)
+size = Vector2(32, 80)
 
 [node name="Bobber" type="CharacterBody2D"]
 script = ExtResource("1_g6qbj")
@@ -13,4 +13,6 @@ script = ExtResource("1_g6qbj")
 shape = SubResource("RectangleShape2D_cludq")
 
 [node name="Bobber" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 4.76837e-07)
 texture = ExtResource("1_42wna")
