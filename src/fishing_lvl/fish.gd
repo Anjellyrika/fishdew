@@ -1,6 +1,6 @@
 class_name Fish
 
-extends Area2D
+extends CharacterBody2D
 
 enum {
 	Wait,
@@ -15,11 +15,14 @@ signal fish_progress_decreased
 @onready var sprite = $FishArea/Icon
 
 # Movement bounds
+var rod_x: float
 var top_bounds: float
 var bot_bounds: float
 
 # Movement variables
-var speed_bounds
+var speed_bounds: Array
+var direction: Vector2
+const ACCEL: float = 2.0 
 var target_position: Vector2
 
 var state = Wait
@@ -36,30 +39,31 @@ func _ready():
 func set_start_position():
 	top_bounds = root.top_bounds
 	bot_bounds = root.bot_bounds
-	global_position = Vector2(root.rod_x, randf_range(top_bounds, bot_bounds))
-	print(position, global_position)
+	rod_x = root.rod_x
+	global_position = Vector2(rod_x, randi_range(top_bounds, bot_bounds))
+	target_position = global_position
 
 
 func get_new_target():
-	var max_distance = [global_position.y - top_bounds, bot_bounds - global_position.y]
-	var target_y_down = clamp(global_position.y + randf_range(50, max_distance.pick_random()), top_bounds, bot_bounds)
-	var target_y_up = clamp(global_position.y - randf_range(50, max_distance.pick_random()), top_bounds, bot_bounds)
-	target_position = Vector2(root.rod_x, [target_y_down, target_y_up].pick_random())
+	target_position = Vector2(rod_x, randi_range(top_bounds, bot_bounds))
+	direction = global_position.direction_to(target_position)
 
 
-func _process(delta):
+func _physics_process(delta):
 	speed_bounds = root.fish_speed
 	set_shader(speed_bounds)
 	match state:
 		Wait:
 			wait()
 		Move:
-			global_position = global_position.lerp(target_position, 0.5 * delta * speed_bounds.pick_random())
+			velocity = velocity.lerp(direction * speed_bounds.pick_random(), delta * ACCEL)
 			if is_at_target_position():
+				velocity = velocity.lerp(Vector2.ZERO, delta * ACCEL)
 				state = Reposition
 		Reposition:
-				get_new_target()
-				state = Wait
+			get_new_target()
+			state = Wait
+	move_and_slide()
 
 
 func wait():
@@ -69,7 +73,7 @@ func wait():
 
 
 func is_at_target_position():
-	var tolerance = fish_size.shape.height
+	var tolerance = 10
 	return abs(global_position.y - target_position.y) < tolerance
 
 

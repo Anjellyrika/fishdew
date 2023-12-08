@@ -15,20 +15,20 @@ var fish_speed
 var chest_spawn_rate
 
 # Set movement bounds
-@onready var rod_top_pos = $FishingRod/TopEdge.global_position
-@onready var rod_bot_pos = $FishingRod/BottomEdge.global_position
+@onready var rod_top_y = $FishingRod/TopEdge.global_position.y
+@onready var rod_bot_y = $FishingRod/BottomEdge.global_position.y
 @onready var edge_width = $FishingRod/TopEdge.shape.size.y
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	chest_spawner.chest_collected.connect(add_treasure)
 	chest_spawner.powerup_collected.connect(activate_powerup)
-	top_bounds = rod_top_pos.y + edge_width
-	bot_bounds = rod_bot_pos.y - edge_width
+	top_bounds = rod_top_y + edge_width
+	bot_bounds = rod_bot_y - edge_width
 	rod_x = ProjectSettings.get_setting("display/window/size/window_width_override") / 2
 	
 	chest_spawn_rate = [4,8,12].pick_random() # lower is better
-	fish_speed = [[2,4], [6,7], [7,8]].pick_random()
+	fish_speed = [[200,400], [600,700], [700,800]].pick_random()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
