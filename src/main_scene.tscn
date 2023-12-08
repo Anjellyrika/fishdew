@@ -45,7 +45,7 @@ grow_vertical = 2
 color = Color(0, 0.756863, 0.972549, 1)
 
 [node name="Camera2D" type="Camera2D" parent="OverworldLayer"]
-anchor_mode = 0
+offset = Vector2(960, 540)
 
 [node name="ActorLayer" type="Node2D" parent="."]
 
