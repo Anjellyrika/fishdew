@@ -55,7 +55,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="FishCaughtSprite" type="Sprite2D" parent="EndScreenElements/VBox/Container"]
-position = Vector2(0, -67.5)
+position = Vector2(0, -61)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_mu537")
 
