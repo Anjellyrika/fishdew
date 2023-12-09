@@ -147,8 +147,40 @@ theme_override_fonts/font = ExtResource("5_fr5gw")
 theme_override_font_sizes/font_size = 24
 text = "  Reel it in  "
 
+[node name="NavButtons" type="VBoxContainer" parent="HUDLayer/HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -219.0
+offset_top = 39.0
+offset_right = -44.0
+offset_bottom = 158.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="Menu" type="Button" parent="HUDLayer/HUD/NavButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.721221, 1, 0.995472, 1)
+theme_override_fonts/font = ExtResource("5_fr5gw")
+theme_override_font_sizes/font_size = 24
+text = "Menu"
+
+[node name="Maps" type="Button" parent="HUDLayer/HUD/NavButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.721221, 1, 0.995472, 1)
+theme_override_fonts/font = ExtResource("5_fr5gw")
+theme_override_font_sizes/font_size = 24
+text = "Maps"
+
 [node name="WaitTimer" type="Timer" parent="."]
 autostart = true
 
 [connection signal="pressed" from="HUDLayer/HUD/StateLabel/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="HUDLayer/HUD/NavButtons/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="HUDLayer/HUD/NavButtons/Maps" to="." method="_on_maps_pressed"]
 [connection signal="timeout" from="WaitTimer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://pj3rvs6myyi8"]
+[gd_scene load_steps=8 format=3 uid="uid://pj3rvs6myyi8"]
 
 [ext_resource type="Script" path="res://src/main_menu.gd" id="1_5gfja"]
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_uk6u3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bq8v13cudgyag" path="res://assets/Fish.png" id="4_nv4d4"]
 [ext_resource type="Texture2D" uid="uid://bfqpgrqixy64o" path="res://assets/Treasure_Chest.png" id="5_yf3du"]
 [ext_resource type="Texture2D" uid="uid://c3ugxpitdmcu1" path="res://assets/powerup.png" id="6_125n6"]
+[ext_resource type="PackedScene" uid="uid://c5w0k1pfkhqnb" path="res://src/ui/map_select_layer.tscn" id="7_1dfko"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -168,70 +169,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "X"
 
-[node name="MapSelectLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="MapSelectLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 233.0
-offset_top = 256.0
-offset_right = -233.0
-offset_bottom = -256.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.74902, 0.913725, 0.980392, 1)
-
-[node name="MapSelection" type="VBoxContainer" parent="MapSelectLayer/ColorRect"]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -112.0
-offset_right = 112.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="River" type="Button" parent="MapSelectLayer/ColorRect/MapSelection"]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_uk6u3")
-theme_override_font_sizes/font_size = 28
-disabled = true
-text = "River"
-
-[node name="Ocean" type="Button" parent="MapSelectLayer/ColorRect/MapSelection"]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_uk6u3")
-theme_override_font_sizes/font_size = 28
-disabled = true
-text = "Ocean"
-
-[node name="Lava" type="Button" parent="MapSelectLayer/ColorRect/MapSelection"]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_uk6u3")
-theme_override_font_sizes/font_size = 28
-disabled = true
-text = "Lava"
-
-[node name="SelectAMap" type="Label" parent="MapSelectLayer/ColorRect"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 184.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0.376471, 1)
-theme_override_fonts/font = ExtResource("2_uk6u3")
-theme_override_font_sizes/font_size = 48
-text = "Select a map:"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="MapSelectLayer" parent="." instance=ExtResource("7_1dfko")]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]

@@ -1,15 +1,17 @@
 extends Control
 
+class_name OverworldScene
+
+@export var active_map: String
+
+@onready var ground: ColorRect = $OverworldLayer/Ground
+@onready var water: ColorRect = $OverworldLayer/Water
 @onready var hud: Control = $HUDLayer/HUD
 @onready var collection: VFlowContainer = $HUDLayer/HUD/Collection
 @onready var level_bg: ColorRect = $LevelBG
 @onready var camera: Camera2D = $OverworldLayer/Camera2D
 @onready var state_label: Label = $HUDLayer/HUD/StateLabel/Label
 @onready var start_btn: Button = $HUDLayer/HUD/StateLabel/StartBtn
-
-var active_map: int
-# TODO: Implement map switching
-var catchable_fish: Array
 
 enum {
 	Waiting,
@@ -19,16 +21,17 @@ enum {
 
 var state = Waiting
 var level_instance: Node2D
+var map_select_instance: CanvasLayer
 
 func _ready():
-	active_map = Global.maps["River"]
 	start_btn.visible = false
 	collection.get_node("FishCount").set_text("Fish caught: %d" % Global.fish_caught)
 	collection.get_node("TreasureCount").set_text("Treasure: %d" % Global.treasure_inventory)
 	
-	for i in active_map+1:
-		for fish in Global.FISHLIST[i]:
-			catchable_fish.append(fish)
+	# Recolor the map
+	var map = Global.maps[active_map]
+	ground.color = Global.ground_type[map]
+	water.color = Global.water_type[map]
 
 func unload_level():
 	if is_instance_valid(level_instance):
@@ -67,3 +70,15 @@ func _on_start_btn_pressed():
 	hud.visible = false
 	level_bg.visible = true
 	state = InGame
+
+
+func _on_menu_pressed():
+	pass
+
+func _on_maps_pressed():
+	var map_select_resource = load("res://src/ui/map_select_layer.tscn")
+	if map_select_resource:
+		map_select_instance = map_select_resource.instantiate()
+		map_select_instance.visible = true
+		queue_free()
+		get_parent().add_child(map_select_instance)
