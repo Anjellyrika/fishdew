@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FishStats" load_steps=3 format=3 uid="uid://bu5gasa8dfnfo"]
+
+[ext_resource type="Script" path="res://src/globals/fish_stats.gd" id="1_dkxhq"]
+[ext_resource type="Texture2D" uid="uid://fr637bw1vsxj" path="res://assets/fish-sprites/Blue_Tang.png" id="2_m71ie"]
+
+[resource]
+script = ExtResource("1_dkxhq")
+id = "o0"
+species = "Blue Tang"
+habitat = "Ocean"
+sprite = ExtResource("2_m71ie")
+speed_range = [400, 480]
+idle_time = 1.5
+treasure_spawns = 8

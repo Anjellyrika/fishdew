@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FishStats" load_steps=3 format=3 uid="uid://dbkopuh6ape80"]
+
+[ext_resource type="Script" path="res://src/globals/fish_stats.gd" id="1_juf37"]
+[ext_resource type="Texture2D" uid="uid://dftb1fx8ueasp" path="res://assets/fish-sprites/Clownfish.png" id="2_2hexk"]
+
+[resource]
+script = ExtResource("1_juf37")
+id = "o1"
+species = "Clownfish"
+habitat = "Ocean"
+sprite = ExtResource("2_2hexk")
+speed_range = [500, 580]
+idle_time = 1.25
+treasure_spawns = 9
