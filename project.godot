@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Fishdew"
-run/main_scene="res://src/main_scene.tscn"
+run/main_scene="res://src/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
 [autoload]
 
-Global="*res://src/Global.gd"
+Global="*res://src/globals/Global.gd"
+FishGuide="*res://src/globals/fish_guide.gd"
 
 [display]
 

@@ -1,0 +1,239 @@
+[gd_scene load_steps=7 format=3 uid="uid://pj3rvs6myyi8"]
+
+[ext_resource type="Script" path="res://src/main_menu.gd" id="1_5gfja"]
+[ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_uk6u3"]
+[ext_resource type="Texture2D" uid="uid://cgy63s4oq2ctw" path="res://assets/bobber.png" id="3_4p8me"]
+[ext_resource type="Texture2D" uid="uid://bq8v13cudgyag" path="res://assets/Fish.png" id="4_nv4d4"]
+[ext_resource type="Texture2D" uid="uid://bfqpgrqixy64o" path="res://assets/Treasure_Chest.png" id="5_yf3du"]
+[ext_resource type="Texture2D" uid="uid://c3ugxpitdmcu1" path="res://assets/powerup.png" id="6_125n6"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5gfja")
+
+[node name="OverworldLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ground" type="ColorRect" parent="OverworldLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392157, 0.796078, 0.6, 1)
+
+[node name="Water" type="ColorRect" parent="OverworldLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 768.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.756863, 0.972549, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+texture_filter = 1
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/default_color = Color(0.721569, 1, 0.996078, 1)
+theme_override_fonts/normal_font = ExtResource("2_uk6u3")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center]FISHDEW
+by Jelly[/center]
+
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uk6u3")
+theme_override_font_sizes/font_size = 28
+text = "Play"
+
+[node name="Help" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uk6u3")
+theme_override_font_sizes/font_size = 28
+text = "Help"
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uk6u3")
+theme_override_font_sizes/font_size = 28
+text = "Exit"
+
+[node name="HelpLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="HelpLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 233.0
+offset_top = 128.0
+offset_right = -233.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74902, 0.913725, 0.980392, 1)
+
+[node name="Controls" type="RichTextLabel" parent="HelpLayer"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -469.0
+offset_top = -317.0
+offset_right = 480.0
+offset_bottom = 332.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0.0666667, 0.145098, 0.309804, 1)
+theme_override_fonts/normal_font = ExtResource("2_uk6u3")
+theme_override_font_sizes/normal_font_size = 24
+text = "Keep the Green Bobber in front of the Fish to catch it!
+
+Reel the Green Bobber in with
+> Left Mouse Button
+> Space
+> Enter
+
+Unlock more maps by collecting Treasure or catching all the Fish in the area.
+
+Look out for the rare Genie powerup! Collecting him will freeze the fish for three seconds."
+autowrap_mode = 2
+
+[node name="Bobber" type="Sprite2D" parent="HelpLayer"]
+texture_filter = 1
+position = Vector2(384, 368)
+scale = Vector2(2, 2)
+texture = ExtResource("3_4p8me")
+
+[node name="Fish" type="Sprite2D" parent="HelpLayer"]
+texture_filter = 1
+position = Vector2(384, 376)
+scale = Vector2(0.1875, 0.1875)
+texture = ExtResource("4_nv4d4")
+
+[node name="TreasureChest" type="Sprite2D" parent="HelpLayer"]
+texture_filter = 1
+position = Vector2(384, 608)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_yf3du")
+
+[node name="Powerup" type="Sprite2D" parent="HelpLayer"]
+texture_filter = 1
+position = Vector2(384, 768)
+scale = Vector2(0.183997, 0.183997)
+texture = ExtResource("6_125n6")
+
+[node name="ExitHelp" type="Button" parent="HelpLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -296.0
+offset_top = 152.0
+offset_right = -256.0
+offset_bottom = 192.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "X"
+
+[node name="MapSelectLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="MapSelectLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 233.0
+offset_top = 256.0
+offset_right = -233.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74902, 0.913725, 0.980392, 1)
+
+[node name="MapSelection" type="VBoxContainer" parent="MapSelectLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_right = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="River" type="Button" parent="MapSelectLayer/ColorRect/MapSelection"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uk6u3")
+theme_override_font_sizes/font_size = 28
+disabled = true
+text = "River"
+
+[node name="Ocean" type="Button" parent="MapSelectLayer/ColorRect/MapSelection"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uk6u3")
+theme_override_font_sizes/font_size = 28
+disabled = true
+text = "Ocean"
+
+[node name="Lava" type="Button" parent="MapSelectLayer/ColorRect/MapSelection"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uk6u3")
+theme_override_font_sizes/font_size = 28
+disabled = true
+text = "Lava"
+
+[node name="SelectAMap" type="Label" parent="MapSelectLayer/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 184.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0.376471, 1)
+theme_override_fonts/font = ExtResource("2_uk6u3")
+theme_override_font_sizes/font_size = 48
+text = "Select a map:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="HelpLayer/ExitHelp" to="." method="_on_exit_help_pressed"]

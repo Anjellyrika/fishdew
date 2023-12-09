@@ -7,6 +7,10 @@ extends Control
 @onready var state_label: Label = $HUDLayer/HUD/StateLabel/Label
 @onready var start_btn: Button = $HUDLayer/HUD/StateLabel/StartBtn
 
+var active_map: int
+# TODO: Implement map switching
+var catchable_fish: Array
+
 enum {
 	Waiting,
 	Bite,
@@ -17,10 +21,14 @@ var state = Waiting
 var level_instance: Node2D
 
 func _ready():
+	active_map = Global.maps["River"]
 	start_btn.visible = false
 	collection.get_node("FishCount").set_text("Fish caught: %d" % Global.fish_caught)
 	collection.get_node("TreasureCount").set_text("Treasure: %d" % Global.treasure_inventory)
-
+	
+	for i in active_map+1:
+		for fish in Global.FISHLIST[i]:
+			catchable_fish.append(fish)
 
 func unload_level():
 	if is_instance_valid(level_instance):
