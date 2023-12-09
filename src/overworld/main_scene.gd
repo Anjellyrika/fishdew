@@ -82,7 +82,8 @@ func _on_start_btn_pressed():
 
 
 func _on_menu_pressed():
-	queue_free()
+	get_tree().change_scene_to_file("res://src/main_menu.tscn")
+
 
 func _on_maps_pressed():
 	var map_select_resource = load("res://src/ui/map_select_layer.tscn")
