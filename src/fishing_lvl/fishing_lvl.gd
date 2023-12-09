@@ -43,16 +43,7 @@ func activate_powerup(): # Powerup freezes the fish for 3 seconds
 	fish_speed = temp
 
 
-func check_unlocked_maps():
-	var highest_unlocked = Global.unlocked_maps.size()
-	for fish in FishGuide.FISH_IDS[highest_unlocked-1]:
-		if FishGuide.fish_stocks[fish] == 0:
-			return;
-	Global.unlocked_maps.append(Global.maps.keys()[highest_unlocked])
-
-
 func _on_progress_bar_fish_caught():
 	Global.fish_caught += 1
 	FishGuide.fish_stocks[level_properties.id] += 1
 	Global.treasure_inventory += treasure_count
-	check_unlocked_maps()

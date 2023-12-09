@@ -8,12 +8,25 @@ var main_scene: OverworldScene
 @onready var buy_lava_dialog = $ColorRect/BuyLavaDialog
 
 func _ready():
+	check_unlocked_maps()
 	render_buttons()
+	
 
 func render_buttons():
 	for button in map_select_buttons:
 		if button.get_name() in Global.unlocked_maps:
 			button.disabled = false
+
+
+func check_unlocked_maps():
+	var highest_unlocked = Global.unlocked_maps.size()
+	var next_map = Global.maps.keys()[highest_unlocked]
+	for fish in FishGuide.FISH_IDS[highest_unlocked-1]:
+		if FishGuide.fish_stocks[fish] == 0:
+			return;
+	if next_map not in Global.unlocked_maps:
+		Global.unlocked_maps.append(next_map)
+
 
 func load_overworld():
 	var overworld_resource = load("res://src/overworld/main_scene.tscn")
@@ -40,7 +53,9 @@ func _on_lava_pressed():
 
 
 func _on_buy_ocean_button_pressed():
-	if Global.treasure_inventory >= 5:
+	if "Ocean" in Global.unlocked_maps:
+		buy_ocean_dialog.get_child(0).text = "You've already unlocked this!"
+	elif Global.treasure_inventory >= 5:
 		Global.unlocked_maps.append("Ocean")
 		Global.treasure_inventory -= 5
 		render_buttons()
@@ -49,7 +64,9 @@ func _on_buy_ocean_button_pressed():
 
 
 func _on_buy_lava_button_pressed():
-	if Global.treasure_inventory >= 10:
+	if "Lava" in Global.unlocked_maps:
+		buy_lava_dialog.get_child(0).text = "You've already unlocked this!"
+	elif Global.treasure_inventory >= 10:
 		Global.unlocked_maps.append("Lava")
 		Global.treasure_inventory -= 10
 		render_buttons()
