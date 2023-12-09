@@ -73,7 +73,7 @@ func _on_start_btn_pressed():
 
 
 func _on_menu_pressed():
-	pass
+	queue_free()
 
 func _on_maps_pressed():
 	var map_select_resource = load("res://src/ui/map_select_layer.tscn")
