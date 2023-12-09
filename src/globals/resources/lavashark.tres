@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FishStats" load_steps=3 format=3 uid="uid://g3opgiijsx34"]
+
+[ext_resource type="Script" path="res://src/globals/fish_stats.gd" id="1_ohdt4"]
+[ext_resource type="Texture2D" uid="uid://bhq300b750iw6" path="res://assets/fish-sprites/Lava_Shark.png" id="2_n4770"]
+
+[resource]
+script = ExtResource("1_ohdt4")
+id = "l1"
+species = "Lava Shark"
+habitat = "Lava"
+sprite = ExtResource("2_n4770")
+speed_range = [500, 580]
+idle_time = 1.25
+treasure_spawns = 9

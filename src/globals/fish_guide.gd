@@ -13,4 +13,6 @@ const FISH_IDS = [["r0", "r1", "r2"], ["o0", "o1"], ["l0", "l1"]]
 	"r2": "res://src/globals/resources/bass.tres",
 	"o0": "res://src/globals/resources/bluetang.tres",
 	"o1": "res://src/globals/resources/clownfish.tres",
+	"l0": "res://src/globals/resources/karsfish.tres",
+	"l1": "res://src/globals/resources/lavashark.tres",
 }
