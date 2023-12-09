@@ -11,13 +11,13 @@ func _ready():
 
 func display_score(outcome: String):
 	var treasure_score = root.treasure_count
+	fish_caught_sprite.texture = null
 	if outcome == "caught":
 		fish_caught_sprite.texture = load((FishGuide.fish_resources[active_fish])).sprite
 		outcome_display.text = "You " + outcome + " a " + active_fish + "!"
 		treasure_score_display.text = "Treasure collected: " + str(treasure_score)
 	elif outcome == "lost":
 		outcome_display.text = "You " + outcome + " the fish!"
-		treasure_score_display.text = ""
 
 
 func _on_play_again_pressed():

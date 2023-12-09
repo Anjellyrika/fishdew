@@ -33,7 +33,7 @@ func _ready():
 	treasure_rarity = level_properties.treasure_spawns
 	
 	### DEBUG
-	print("species: ", level_properties.species, "habitat: ", level_properties.habitat, "speed: ", fish_speed, "idle time: ", idle_time, "treasure rarity: ", treasure_rarity)
+	print("species: ", level_properties.species, " habitat: ", level_properties.habitat, " speed: ", fish_speed, " idle time: ", idle_time, " treasure rarity: ", treasure_rarity)
 
 
 func add_treasure():

@@ -27,11 +27,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 24.0
-offset_right = 24.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.776471, 0.776471, 0.776471, 0.372549)
+color = Color(0.776471, 0.776471, 0.776471, 0.72549)
 
 [node name="EndScreenElements" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -71,7 +69,6 @@ horizontal_alignment = 1
 [node name="TreasureCollected" type="Label" parent="EndScreenElements/VBox"]
 texture_filter = 1
 layout_mode = 2
-text = "Treasure collected: 0"
 label_settings = SubResource("LabelSettings_0ciq0")
 horizontal_alignment = 1
 
