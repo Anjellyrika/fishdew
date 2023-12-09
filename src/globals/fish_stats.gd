@@ -2,6 +2,7 @@ extends Resource
 
 class_name FishStats
 
+@export var id: String
 @export var species: String
 @export var habitat: String
 @export var sprite: Texture2D

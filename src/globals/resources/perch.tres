@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_bm70n")
+id = "r0"
 species = "Perch"
 habitat = "River"
 sprite = ExtResource("2_lbqmf")

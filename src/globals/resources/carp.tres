@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_jsdgo")
+id = "r1"
 species = "Carp"
 habitat = "River"
 sprite = ExtResource("2_cyyu6")

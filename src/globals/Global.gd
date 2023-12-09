@@ -11,7 +11,6 @@ extends Node
 @onready var unlocked_maps: Array = ["River", "Ocean", "Lava"]
 @onready var active_map: String
 
-const FISHLIST = [["Perch", "Carp", "Bass"], ["Blue Tang", "Clownfish"], ["Karsfish", "Lava Shark"]]
 
 enum maps {
 	River,

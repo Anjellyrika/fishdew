@@ -37,8 +37,8 @@ func change_map():
 	
 	# Get list of catchable fish
 	for i in range(Global.maps[Global.active_map] + 1):
-		for fish in Global.FISHLIST[i]:
-			catchable_fish.append(fish)
+		for fish_id in FishGuide.FISH_IDS[i]:
+			catchable_fish.append(fish_id)
 
 
 func unload_level():
