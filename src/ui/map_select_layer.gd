@@ -20,6 +20,9 @@ func render_buttons():
 
 func check_unlocked_maps():
 	var highest_unlocked = Global.unlocked_maps.size()
+	if highest_unlocked == 3:
+		return
+	
 	var next_map = Global.maps.keys()[highest_unlocked]
 	for fish in FishGuide.FISH_IDS[highest_unlocked-1]:
 		if FishGuide.fish_stocks[fish] == 0:
