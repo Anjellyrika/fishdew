@@ -2,8 +2,6 @@ extends Control
 
 class_name OverworldScene
 
-@export var active_map: String
-
 @onready var ground: ColorRect = $OverworldLayer/Ground
 @onready var water: ColorRect = $OverworldLayer/Water
 @onready var hud: Control = $HUDLayer/HUD
@@ -29,16 +27,19 @@ func _ready():
 	start_btn.visible = false
 	collection.get_node("FishCount").set_text("Fish caught: %d" % Global.fish_caught)
 	collection.get_node("TreasureCount").set_text("Treasure: %d" % Global.treasure_inventory)
-	
+	change_map()
+
+
+func change_map():
 	# Recolor the map
-	var map = Global.maps[active_map]
-	ground.color = Global.ground_type[map]
-	water.color = Global.water_type[map]
+	ground.color = Global.ground_type[Global.active_map]
+	water.color = Global.water_type[Global.active_map]
 	
 	# Get list of catchable fish
-	for i in range(map+1):
+	for i in range(Global.maps[Global.active_map] + 1):
 		for fish in Global.FISHLIST[i]:
 			catchable_fish.append(fish)
+
 
 func unload_level():
 	if is_instance_valid(level_instance):
