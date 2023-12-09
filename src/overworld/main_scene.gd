@@ -5,11 +5,11 @@ class_name OverworldScene
 @onready var ground: ColorRect = $OverworldLayer/Ground
 @onready var water: ColorRect = $OverworldLayer/Water
 @onready var hud: Control = $HUDLayer/HUD
-@onready var collection: VFlowContainer = $HUDLayer/HUD/Collection
+@onready var score: VFlowContainer = $HUDLayer/HUD/Collection
 @onready var level_bg: ColorRect = $LevelBG
-@onready var camera: Camera2D = $OverworldLayer/Camera2D
 @onready var state_label: Label = $HUDLayer/HUD/StateLabel/Label
 @onready var start_btn: Button = $HUDLayer/HUD/StateLabel/StartBtn
+@onready var collection: CanvasLayer = $CollectionLayer
 
 enum {
 	Waiting,
@@ -25,8 +25,8 @@ var map_select_instance: CanvasLayer
 
 func _ready():
 	start_btn.visible = false
-	collection.get_node("FishCount").set_text("Fish caught: %d" % Global.fish_caught)
-	collection.get_node("TreasureCount").set_text("Treasure: %d" % Global.treasure_inventory)
+	score.get_node("FishCount").set_text("Fish caught: %d" % Global.fish_caught)
+	score.get_node("TreasureCount").set_text("Treasure: %d" % Global.treasure_inventory)
 	change_map()
 
 
@@ -93,3 +93,11 @@ func _on_maps_pressed():
 		map_select_instance.visible = true
 		queue_free()
 		get_parent().add_child(map_select_instance)
+
+
+func _on_open_collection_pressed():
+	collection.visible = !collection.visible
+	if collection.visible:
+		$HUDLayer/HUD/Collection/OpenCollection.text = "Hide collection"
+	else:
+		$HUDLayer/HUD/Collection/OpenCollection.text = "View your collection"

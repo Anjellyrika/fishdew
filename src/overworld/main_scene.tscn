@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://fy45fj0828c8"]
+[gd_scene load_steps=7 format=3 uid="uid://fy45fj0828c8"]
 
 [ext_resource type="Script" path="res://src/overworld/main_scene.gd" id="1_bphdg"]
 [ext_resource type="Script" path="res://src/shapes/ripple.gd" id="2_r2osl"]
 [ext_resource type="PackedScene" uid="uid://cqewy85ekx2sx" path="res://src/actors/player.tscn" id="3_ga725"]
 [ext_resource type="AudioStream" uid="uid://bjpyi3ksy8lgm" path="res://assets/audio/water_drop.mp3" id="4_652du"]
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="5_fr5gw"]
+[ext_resource type="PackedScene" uid="uid://0vxetfekp4su" path="res://src/ui/collection.tscn" id="6_vur6r"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -43,9 +44,6 @@ offset_top = 768.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.756863, 0.972549, 1)
-
-[node name="Camera2D" type="Camera2D" parent="OverworldLayer"]
-offset = Vector2(960, 540)
 
 [node name="ActorLayer" type="Node2D" parent="."]
 
@@ -116,6 +114,16 @@ theme_override_font_sizes/font_size = 24
 text = "Treasure:"
 vertical_alignment = 1
 
+[node name="OpenCollection" type="Button" parent="HUDLayer/HUD/Collection"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.721221, 1, 0.995472, 1)
+theme_override_fonts/font = ExtResource("5_fr5gw")
+theme_override_font_sizes/font_size = 16
+text = "View your collection"
+alignment = 0
+
 [node name="StateLabel" type="VBoxContainer" parent="HUDLayer/HUD"]
 texture_filter = 1
 layout_mode = 1
@@ -180,6 +188,10 @@ text = "Maps"
 [node name="WaitTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="CollectionLayer" parent="." instance=ExtResource("6_vur6r")]
+visible = false
+
+[connection signal="pressed" from="HUDLayer/HUD/Collection/OpenCollection" to="." method="_on_open_collection_pressed"]
 [connection signal="pressed" from="HUDLayer/HUD/StateLabel/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="HUDLayer/HUD/NavButtons/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="HUDLayer/HUD/NavButtons/Maps" to="." method="_on_maps_pressed"]
