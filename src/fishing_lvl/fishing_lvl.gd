@@ -49,4 +49,5 @@ func activate_powerup(): # Powerup freezes the fish for 3 seconds
 
 func _on_progress_bar_fish_caught():
 	Global.fish_caught += 1
+	FishGuide.fish_stocks[level_properties.id] += 1
 	Global.treasure_inventory += treasure_count

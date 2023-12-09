@@ -1,0 +1,319 @@
+[gd_scene load_steps=20 format=3 uid="uid://0vxetfekp4su"]
+
+[ext_resource type="Script" path="res://src/ui/collection.gd" id="1_ukkfk"]
+[ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_0dqrm"]
+[ext_resource type="Texture2D" uid="uid://u3ilycdykkhu" path="res://assets/fish-sprites/Perch.png" id="2_ps05g"]
+[ext_resource type="Shader" path="res://src/ui/locked.gdshader" id="3_j81kt"]
+[ext_resource type="Texture2D" uid="uid://cay4igqkeywen" path="res://assets/fish-sprites/Carp.png" id="3_obi1d"]
+[ext_resource type="Texture2D" uid="uid://cg8gam2cei4n4" path="res://assets/fish-sprites/Bass.png" id="4_knpnq"]
+[ext_resource type="Texture2D" uid="uid://fr637bw1vsxj" path="res://assets/fish-sprites/Blue_Tang.png" id="5_dkb71"]
+[ext_resource type="Texture2D" uid="uid://dftb1fx8ueasp" path="res://assets/fish-sprites/Clownfish.png" id="6_c4hx6"]
+[ext_resource type="Texture2D" uid="uid://8ajgieeysifo" path="res://assets/fish-sprites/Karsfish.png" id="7_358rc"]
+[ext_resource type="Texture2D" uid="uid://bhq300b750iw6" path="res://assets/fish-sprites/Lava_Shark.png" id="8_wnlf3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x1h5d"]
+font_size = 30
+font_color = Color(0.0666667, 0.145098, 0.309804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7503b"]
+font = ExtResource("2_0dqrm")
+font_size = 12
+font_color = Color(0.0666667, 0.145098, 0.309804, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gkph0"]
+shader = ExtResource("3_j81kt")
+shader_parameter/locked = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vudbh"]
+shader = ExtResource("3_j81kt")
+shader_parameter/locked = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ihpy8"]
+shader = ExtResource("3_j81kt")
+shader_parameter/locked = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eyp13"]
+shader = ExtResource("3_j81kt")
+shader_parameter/locked = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1bom"]
+shader = ExtResource("3_j81kt")
+shader_parameter/locked = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dy34t"]
+shader = ExtResource("3_j81kt")
+shader_parameter/locked = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1c0v"]
+shader = ExtResource("3_j81kt")
+shader_parameter/locked = true
+
+[node name="CollectionLayer" type="CanvasLayer"]
+script = ExtResource("1_ukkfk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 512.0
+offset_top = 168.0
+offset_right = -511.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74902, 0.913725, 0.980392, 1)
+
+[node name="YourCollection" type="Label" parent="ColorRect"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 236.0
+offset_top = 40.0
+offset_right = 661.0
+offset_bottom = 98.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_0dqrm")
+theme_override_font_sizes/font_size = 28
+text = "Your Collection"
+label_settings = SubResource("LabelSettings_x1h5d")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RiverFish" type="Label" parent="ColorRect/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_0dqrm")
+theme_override_font_sizes/font_size = 22
+text = "
+River Fish"
+label_settings = SubResource("LabelSettings_7503b")
+horizontal_alignment = 1
+
+[node name="RiverRow" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="r0" type="VBoxContainer" parent="ColorRect/VBoxContainer/RiverRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/RiverRow/r0"]
+material = SubResource("ShaderMaterial_gkph0")
+layout_mode = 2
+texture = ExtResource("2_ps05g")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="FishName" type="Label" parent="ColorRect/VBoxContainer/RiverRow/r0"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_0dqrm")
+theme_override_font_sizes/font_size = 22
+text = "Perch"
+label_settings = SubResource("LabelSettings_7503b")
+horizontal_alignment = 1
+
+[node name="r1" type="VBoxContainer" parent="ColorRect/VBoxContainer/RiverRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/RiverRow/r1"]
+material = SubResource("ShaderMaterial_vudbh")
+layout_mode = 2
+tooltip_text = "Perch"
+texture = ExtResource("3_obi1d")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="FishName" type="Label" parent="ColorRect/VBoxContainer/RiverRow/r1"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_0dqrm")
+theme_override_font_sizes/font_size = 22
+text = "Carp"
+label_settings = SubResource("LabelSettings_7503b")
+horizontal_alignment = 1
+
+[node name="r2" type="VBoxContainer" parent="ColorRect/VBoxContainer/RiverRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/RiverRow/r2"]
+material = SubResource("ShaderMaterial_ihpy8")
+layout_mode = 2
+tooltip_text = "Perch"
+texture = ExtResource("4_knpnq")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="FishName" type="Label" parent="ColorRect/VBoxContainer/RiverRow/r2"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_0dqrm")
+theme_override_font_sizes/font_size = 22
+text = "Bass"
+label_settings = SubResource("LabelSettings_7503b")
+horizontal_alignment = 1
+
+[node name="OceanFish" type="Label" parent="ColorRect/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_0dqrm")
+theme_override_font_sizes/font_size = 22
+text = "
+Ocean Fish"
+label_settings = SubResource("LabelSettings_7503b")
+horizontal_alignment = 1
+
+[node name="OceanRow" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="o0" type="VBoxContainer" parent="ColorRect/VBoxContainer/OceanRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/OceanRow/o0"]
+material = SubResource("ShaderMaterial_eyp13")
+layout_mode = 2
+tooltip_text = "Perch"
+texture = ExtResource("5_dkb71")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="FishName" type="Label" parent="ColorRect/VBoxContainer/OceanRow/o0"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_0dqrm")
+theme_override_font_sizes/font_size = 22
+text = "Blue Tang"
+label_settings = SubResource("LabelSettings_7503b")
+horizontal_alignment = 1
+
+[node name="o1" type="VBoxContainer" parent="ColorRect/VBoxContainer/OceanRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/OceanRow/o1"]
+material = SubResource("ShaderMaterial_g1bom")
+layout_mode = 2
+tooltip_text = "Perch"
+texture = ExtResource("6_c4hx6")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="FishName" type="Label" parent="ColorRect/VBoxContainer/OceanRow/o1"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_0dqrm")
+theme_override_font_sizes/font_size = 22
+text = "Clownfish"
+label_settings = SubResource("LabelSettings_7503b")
+horizontal_alignment = 1
+
+[node name="LavaFish" type="Label" parent="ColorRect/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_0dqrm")
+theme_override_font_sizes/font_size = 22
+text = "
+Lava Fish"
+label_settings = SubResource("LabelSettings_7503b")
+horizontal_alignment = 1
+
+[node name="LavaRow" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="l0" type="VBoxContainer" parent="ColorRect/VBoxContainer/LavaRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/LavaRow/l0"]
+material = SubResource("ShaderMaterial_dy34t")
+layout_mode = 2
+tooltip_text = "Perch"
+texture = ExtResource("7_358rc")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="FishName" type="Label" parent="ColorRect/VBoxContainer/LavaRow/l0"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_0dqrm")
+theme_override_font_sizes/font_size = 22
+text = "Karsfish"
+label_settings = SubResource("LabelSettings_7503b")
+horizontal_alignment = 1
+
+[node name="l1" type="VBoxContainer" parent="ColorRect/VBoxContainer/LavaRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(125, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/LavaRow/l1"]
+material = SubResource("ShaderMaterial_n1c0v")
+layout_mode = 2
+tooltip_text = "Perch"
+texture = ExtResource("8_wnlf3")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="FishName" type="Label" parent="ColorRect/VBoxContainer/LavaRow/l1"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_0dqrm")
+theme_override_font_sizes/font_size = 22
+text = "Lava Shark"
+label_settings = SubResource("LabelSettings_7503b")
+horizontal_alignment = 1
+
+[node name="HFlowContainer" type="HFlowContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

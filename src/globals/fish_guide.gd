@@ -16,3 +16,13 @@ const FISH_IDS = [["r0", "r1", "r2"], ["o0", "o1"], ["l0", "l1"]]
 	"l0": "res://src/globals/resources/karsfish.tres",
 	"l1": "res://src/globals/resources/lavashark.tres",
 }
+
+@onready var fish_stocks = {
+	"r0": 0,
+	"r1": 0,
+	"r2": 0,
+	"o0": 0,
+	"o1": 0,
+	"l0": 0,
+	"l1": 0,
+}
