@@ -8,7 +8,7 @@ extends Node
 @onready var fish_caught: int = 0
 @onready var treasure_inventory: int = 0
 
-@onready var unlocked_maps: Array = ["River", "Ocean", "Lava"]
+@onready var unlocked_maps: Array = ["River"]
 @onready var active_map: String
 
 
