@@ -73,7 +73,7 @@ func wait():
 
 
 func is_at_target_position():
-	var tolerance = 10
+	var tolerance = 100
 	return abs(global_position.y - target_position.y) < tolerance
 
 
