@@ -1,5 +1,6 @@
 extends Node2D
 
+var bg_color: Color
 var start_position: Vector2
 var target_position: Vector2
 var target_vector = Vector2(0,-3)
@@ -9,6 +10,7 @@ var timer_interval = 1
 @onready var root = get_owner()
 
 func _ready():
+	bg_color = Global.water_type[Global.active_map]
 	start_position = Vector2(Global.center_x, Global.center_y + 360)
 	target_position = start_position + target_vector
 	position = start_position
@@ -16,7 +18,7 @@ func _ready():
 
 func _draw():
 	draw_set_transform(Vector2.ZERO, 0, Vector2(1.5,0.5))
-	draw_circle(Vector2.ZERO,32.0,Color("6DDFFF"))
+	draw_circle(Vector2.ZERO,32.0,bg_color.lightened(0.4))
 
 
 func set_move_back():

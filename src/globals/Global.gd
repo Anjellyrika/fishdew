@@ -20,4 +20,4 @@ enum maps {
 
 func _ready():
 	ground_type = {"River": "0acb99", "Ocean": "eed580", "Lava": "605654"}
-	water_type = {"River": "00c1f8", "Ocean": "4590db", "Lava": "b64636"}
+	water_type = {"River": "00c1f8", "Ocean": "4590db", "Lava": "b44720"}
