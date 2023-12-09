@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishStats" load_steps=2 format=3 uid="uid://b2i2ylj45npgt"]
+
+[ext_resource type="Script" path="res://src/globals/fish_stats.gd" id="1_mbdih"]
+
+[resource]
+script = ExtResource("1_mbdih")
+species = "Bass"
+habitat = "River"
+speed_range = [90, 130]
+idle_time = 2
+treasure_spawns = 6

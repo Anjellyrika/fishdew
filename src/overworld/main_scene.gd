@@ -21,6 +21,8 @@ enum {
 
 var state = Waiting
 var level_instance: Node2D
+var catchable_fish: Array = []
+var active_fish: String
 var map_select_instance: CanvasLayer
 
 func _ready():
@@ -32,6 +34,11 @@ func _ready():
 	var map = Global.maps[active_map]
 	ground.color = Global.ground_type[map]
 	water.color = Global.water_type[map]
+	
+	# Get list of catchable fish
+	for i in range(map+1):
+		for fish in Global.FISHLIST[i]:
+			catchable_fish.append(fish)
 
 func unload_level():
 	if is_instance_valid(level_instance):
@@ -45,6 +52,7 @@ func load_fish_level():
 	var level_resource = load("res://src/fishing_lvl/fishing_lvl.tscn")
 	if level_resource:
 		level_instance = level_resource.instantiate()
+		level_instance.level_properties = load(FishGuide.fish_resources[active_fish])
 		add_child(level_instance)
 
 
@@ -62,6 +70,7 @@ func _process(delta):
 func _on_timer_timeout():
 	if state == Waiting:
 		if randi_range(0, 1) == 0:
+			active_fish = catchable_fish.pick_random()
 			$ActorLayer/FishBite.play()
 			state = Bite
 

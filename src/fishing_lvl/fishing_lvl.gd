@@ -2,7 +2,9 @@ extends Node2D
 
 signal treasure_added
 
+# Set level properties
 @export var chest_spawner: ChestSpawner
+@export var level_properties: FishStats
 
 var treasure_count = 0
 
@@ -10,9 +12,9 @@ var top_bounds: float
 var bot_bounds: float
 var rod_x: float
 
-# Set game properties
-var fish_speed
-var chest_spawn_rate
+var fish_speed: Array 
+var idle_time: int
+var treasure_rarity: int
 
 # Set movement bounds
 @onready var rod_top_y = $FishingRod/TopEdge.global_position.y
@@ -27,13 +29,12 @@ func _ready():
 	bot_bounds = rod_bot_y - edge_width
 	rod_x = ProjectSettings.get_setting("display/window/size/window_width_override") / 2
 	
-	chest_spawn_rate = [4,8,12].pick_random() # lower is better
-	fish_speed = [[200,400], [600,700], [700,800]].pick_random()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	fish_speed = level_properties.speed_range
+	idle_time = level_properties.idle_time
+	treasure_rarity = level_properties.treasure_spawns
+	
+	### DEBUG
+	print("species: ", level_properties.species, "habitat: ", level_properties.habitat, "speed: ", fish_speed, "idle time: ", idle_time, "treasure rarity: ", treasure_rarity)
 
 
 func add_treasure():
@@ -45,7 +46,6 @@ func activate_powerup(): # Powerup freezes the fish for 3 seconds
 	fish_speed = [0,0]
 	await get_tree().create_timer(3).timeout
 	fish_speed = temp
-	
 
 
 func _on_progress_bar_fish_caught():

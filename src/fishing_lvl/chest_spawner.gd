@@ -40,8 +40,8 @@ func _process(_delta):
 		NonExistent:
 			pass
 		Spawning: # attempt to spawn a chest
-			if randi_range(1, root.chest_spawn_rate) == 1:
-				if randi_range(1, root.chest_spawn_rate) == 1:
+			if randi_range(1, root.treasure_rarity) == 1:
+				if randi_range(1, root.treasure_rarity) == 1:
 					powerup.position = Vector2(x_pos, randi_range(top_bounds, bot_bounds))
 					state = Powerup_Spawned
 				else:

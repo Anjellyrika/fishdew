@@ -10,7 +10,7 @@ extends Node
 
 @onready var unlocked_maps: Array = ["River", "Ocean", "Lava"]
 
-const FISHLIST = [["perch", "carp", "bass"], ["bluetang", "clownfish"], ["karsfish", "lavashark"]]
+const FISHLIST = [["Perch", "Carp", "Bass"], ["Blue Tang", "Clownfish"], ["Karsfish", "Lava Shark"]]
 
 enum maps {
 	River,

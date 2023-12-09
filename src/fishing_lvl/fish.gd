@@ -68,7 +68,7 @@ func _physics_process(delta):
 
 func wait():
 	if waitTimer.time_left == 0:
-		waitTimer.start(0.75)
+		waitTimer.start(root.idle_time)
 		state = randi_range(0,1)
 
 

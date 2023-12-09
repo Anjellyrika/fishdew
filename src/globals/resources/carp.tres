@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishStats" load_steps=2 format=3 uid="uid://bbsno7rkvh4fq"]
+
+[ext_resource type="Script" path="res://src/globals/fish_stats.gd" id="1_jsdgo"]
+
+[resource]
+script = ExtResource("1_jsdgo")
+species = "Carp"
+habitat = "River"
+speed_range = [80, 90]
+idle_time = 3
+treasure_spawns = 6

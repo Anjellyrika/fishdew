@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishStats" load_steps=2 format=3 uid="uid://ct3seql672w3y"]
+
+[ext_resource type="Script" path="res://src/globals/fish_stats.gd" id="1_bm70n"]
+
+[resource]
+script = ExtResource("1_bm70n")
+species = "Perch"
+habitat = "River"
+speed_range = [60, 80]
+idle_time = 3
+treasure_spawns = 4
