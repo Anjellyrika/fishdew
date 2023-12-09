@@ -25,7 +25,7 @@ var direction: Vector2
 const ACCEL: float = 2.0 
 var target_position: Vector2
 
-var state = Wait
+var state = Move
 
 @onready var root = get_owner()
 @onready var waitTimer = $WaitControl/Timer
