@@ -4,17 +4,12 @@
 [ext_resource type="Script" path="res://src/ui/map_select_layer.gd" id="1_ga63m"]
 
 [node name="MapSelectLayer" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_ga63m")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 233.0
-offset_top = 256.0
-offset_right = -233.0
-offset_bottom = -256.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74902, 0.913725, 0.980392, 1)
@@ -30,6 +25,16 @@ offset_right = 112.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+
+[node name="SelectAMap" type="Label" parent="ColorRect/MapSelection"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.376471, 1)
+theme_override_fonts/font = ExtResource("1_6u37w")
+theme_override_font_sizes/font_size = 48
+text = "Select a map:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="River" type="Button" parent="ColorRect/MapSelection"]
 texture_filter = 1
@@ -54,20 +59,6 @@ theme_override_fonts/font = ExtResource("1_6u37w")
 theme_override_font_sizes/font_size = 28
 disabled = true
 text = "Lava"
-
-[node name="SelectAMap" type="Label" parent="ColorRect"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 184.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0.376471, 1)
-theme_override_fonts/font = ExtResource("1_6u37w")
-theme_override_font_sizes/font_size = 48
-text = "Select a map:"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="ColorRect/MapSelection/River" to="." method="_on_river_pressed"]
 [connection signal="pressed" from="ColorRect/MapSelection/Ocean" to="." method="_on_ocean_pressed"]

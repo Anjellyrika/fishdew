@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://pj3rvs6myyi8"]
+[gd_scene load_steps=7 format=3 uid="uid://pj3rvs6myyi8"]
 
 [ext_resource type="Script" path="res://src/main_menu.gd" id="1_5gfja"]
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_uk6u3"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bq8v13cudgyag" path="res://assets/Fish.png" id="4_nv4d4"]
 [ext_resource type="Texture2D" uid="uid://bfqpgrqixy64o" path="res://assets/Treasure_Chest.png" id="5_yf3du"]
 [ext_resource type="Texture2D" uid="uid://c3ugxpitdmcu1" path="res://assets/powerup.png" id="6_125n6"]
-[ext_resource type="PackedScene" uid="uid://c5w0k1pfkhqnb" path="res://src/ui/map_select_layer.tscn" id="7_1dfko"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -168,8 +167,6 @@ grow_horizontal = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "X"
-
-[node name="MapSelectLayer" parent="." instance=ExtResource("7_1dfko")]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]
