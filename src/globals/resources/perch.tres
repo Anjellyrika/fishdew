@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="FishStats" load_steps=2 format=3 uid="uid://ct3seql672w3y"]
+[gd_resource type="Resource" script_class="FishStats" load_steps=3 format=3 uid="uid://ct3seql672w3y"]
 
 [ext_resource type="Script" path="res://src/globals/fish_stats.gd" id="1_bm70n"]
+[ext_resource type="Texture2D" uid="uid://u3ilycdykkhu" path="res://assets/fish-sprites/Perch.png" id="2_lbqmf"]
 
 [resource]
 script = ExtResource("1_bm70n")
 species = "Perch"
 habitat = "River"
+sprite = ExtResource("2_lbqmf")
 speed_range = [60, 80]
 idle_time = 3
 treasure_spawns = 4

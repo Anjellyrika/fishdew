@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://uuv6r24lldwk"]
+[gd_scene load_steps=7 format=3 uid="uid://uuv6r24lldwk"]
 
 [ext_resource type="Script" path="res://src/fishing_lvl/end_screen.gd" id="1_yh6o0"]
+[ext_resource type="Texture2D" uid="uid://bq8v13cudgyag" path="res://assets/Fish.png" id="2_mu537"]
 [ext_resource type="FontFile" uid="uid://bdpbpkhnq8lny" path="res://assets/8-bit-pusab.ttf" id="2_rwnjd"]
 [ext_resource type="AudioStream" uid="uid://bp6tmlgjw4sko" path="res://assets/audio/wilhelm_scream.mp3" id="3_vbjhr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1pnuh"]
 font = ExtResource("2_rwnjd")
-font_size = 21
+font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ciq0"]
 font = ExtResource("2_rwnjd")
-font_size = 14
+font_size = 32
 
 [node name="EndScreen" type="Control"]
 layout_mode = 3
@@ -26,6 +27,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.776471, 0.776471, 0.776471, 0.372549)
@@ -48,13 +51,25 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 0
 
+[node name="Container" type="CenterContainer" parent="EndScreenElements/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="FishCaughtSprite" type="Sprite2D" parent="EndScreenElements/VBox/Container"]
+position = Vector2(0, -67.5)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_mu537")
+
 [node name="Outcome" type="Label" parent="EndScreenElements/VBox"]
+texture_filter = 1
 layout_mode = 2
 text = "You [] the fish!"
 label_settings = SubResource("LabelSettings_1pnuh")
 horizontal_alignment = 1
 
 [node name="TreasureCollected" type="Label" parent="EndScreenElements/VBox"]
+texture_filter = 1
 layout_mode = 2
 text = "Treasure collected: 0"
 label_settings = SubResource("LabelSettings_0ciq0")
@@ -65,7 +80,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_rwnjd")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 24
 text = "Keep fishing"
 
 [node name="Exit" type="Button" parent="EndScreenElements/VBox"]
@@ -73,7 +88,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("2_rwnjd")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 24
 text = "Exit"
 
 [node name="WilhelmScream" type="AudioStreamPlayer" parent="."]

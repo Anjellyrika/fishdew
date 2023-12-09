@@ -1,17 +1,23 @@
 extends Control
 
+var active_fish
 @onready var root = get_owner()
+@onready var fish_caught_sprite: Sprite2D = $EndScreenElements/VBox/Container/FishCaughtSprite
+@onready var outcome_display: Label = $EndScreenElements/VBox/Outcome
+@onready var treasure_score_display: Label = $EndScreenElements/VBox/TreasureCollected
 
 func _ready():
-	pass
-
+	active_fish = root.level_properties.species
 
 func display_score(outcome: String):
 	var treasure_score = root.treasure_count
-	$EndScreenElements/VBox/TreasureCollected.text = ""
-	$EndScreenElements/VBox/Outcome.text = "You " + outcome + " the fish!"
 	if outcome == "caught":
-		$EndScreenElements/VBox/TreasureCollected.text = "Treasure collected: " + str(treasure_score)
+		fish_caught_sprite.texture = load((FishGuide.fish_resources[active_fish])).sprite
+		outcome_display.text = "You " + outcome + " a " + active_fish + "!"
+		treasure_score_display.text = "Treasure collected: " + str(treasure_score)
+	elif outcome == "lost":
+		outcome_display.text = "You " + outcome + " the fish!"
+		treasure_score_display.text = ""
 
 
 func _on_play_again_pressed():

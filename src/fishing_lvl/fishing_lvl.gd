@@ -5,16 +5,15 @@ signal treasure_added
 # Set level properties
 @export var chest_spawner: ChestSpawner
 @export var level_properties: FishStats
+var fish_speed: Array 
+var idle_time: int
+var treasure_rarity: int
 
 var treasure_count = 0
 
 var top_bounds: float
 var bot_bounds: float
 var rod_x: float
-
-var fish_speed: Array 
-var idle_time: int
-var treasure_rarity: int
 
 # Set movement bounds
 @onready var rod_top_y = $FishingRod/TopEdge.global_position.y

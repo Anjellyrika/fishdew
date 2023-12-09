@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="FishStats" load_steps=2 format=3 uid="uid://bbsno7rkvh4fq"]
+[gd_resource type="Resource" script_class="FishStats" load_steps=3 format=3 uid="uid://bbsno7rkvh4fq"]
 
 [ext_resource type="Script" path="res://src/globals/fish_stats.gd" id="1_jsdgo"]
+[ext_resource type="Texture2D" uid="uid://cay4igqkeywen" path="res://assets/fish-sprites/Carp.png" id="2_cyyu6"]
 
 [resource]
 script = ExtResource("1_jsdgo")
 species = "Carp"
 habitat = "River"
+sprite = ExtResource("2_cyyu6")
 speed_range = [80, 90]
 idle_time = 3
 treasure_spawns = 6
