@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -30.0
 @onready var root = get_owner()
 
 
-func _process(delta):
+func _process(_delta):
 	update_animation()
 
 

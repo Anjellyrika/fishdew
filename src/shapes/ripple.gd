@@ -32,7 +32,7 @@ func wait():
 	moving = true
 
 
-func _process(delta):
+func _process(_delta):
 	if moving:
 		position = position.move_toward(target_position, 1.0)
 		if position == target_position:

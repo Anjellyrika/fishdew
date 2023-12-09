@@ -6,7 +6,7 @@ signal treasure_added
 @export var chest_spawner: ChestSpawner
 @export var level_properties: FishStats
 var fish_speed: Array 
-var idle_time: int
+var idle_time: float
 var treasure_rarity: int
 
 var treasure_count = 0

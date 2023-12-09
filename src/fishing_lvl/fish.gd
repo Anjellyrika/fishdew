@@ -15,9 +15,9 @@ signal fish_progress_decreased
 @onready var sprite = $FishArea/Icon
 
 # Movement bounds
-var rod_x: float
-var top_bounds: float
-var bot_bounds: float
+var rod_x: int
+var top_bounds: int
+var bot_bounds: int
 
 # Movement variables
 var speed_bounds: Array
@@ -37,8 +37,8 @@ func _ready():
 
 
 func set_start_position():
-	top_bounds = root.top_bounds
-	bot_bounds = root.bot_bounds
+	top_bounds = floor(root.top_bounds)
+	bot_bounds = ceil(root.bot_bounds)
 	rod_x = root.rod_x
 	global_position = Vector2(rod_x, randi_range(top_bounds, bot_bounds))
 	target_position = global_position

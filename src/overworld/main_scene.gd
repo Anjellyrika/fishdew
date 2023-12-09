@@ -57,7 +57,7 @@ func load_fish_level():
 		add_child(level_instance)
 
 
-func _process(delta):
+func _process(_delta):
 	match state:
 		Waiting:
 			state_label.text = "Waiting for fish..."
