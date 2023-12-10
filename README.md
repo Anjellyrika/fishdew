@@ -11,6 +11,7 @@ The current version allows the player to fish in three different maps, each with
 
 ## Credits
 Player, fish and treasure chest assets were made by my friend Joshua ([Instagram](https://www.instagram.com/englishrazor/), @englishrazor on Discord)
+
 Genie asset was provided by a buddy Kaitlyn from [DevelUP](https://develup.games/)
 
 Original game concept is by [ConcernedApe](https://twitter.com/ConcernedApe?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor), the creator of Stardew Valley
